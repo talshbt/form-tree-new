@@ -209,7 +209,7 @@ transDict =
 
   printForm(){
 
-    // console.log(this.form)
+     console.log(this.form)
   
     // for(var i =0; i < Object.values(this.form.controls).length; ++i){
     //   console.log(Object.keys(this.form.controls)[i])
@@ -220,7 +220,7 @@ transDict =
 // Object.values(this.form.controls).forEach(x=>{
 //   console.log(x.value)
 // })
-    console.log(Object.values(this.form.controls))
+    // console.log(Object.values(this.form.controls))
 //  for(var item in this.form.controls){
 //       console.log(Object.values(item))
 //     }
@@ -240,12 +240,9 @@ transDict =
 
 
   printChildrenObjects(){
-    console.log("-------------------------------------")
           for(var item in this.treeArrObjects){
             var keyName = this.treeArrObjects[item]['name'];
-            // console.log(Object.values(this.childrentObjects1[keyName])
-            
-            // )
+       
 
             console.log(this.treeArrObjects[item]['name'] +":")
 
