@@ -1,0 +1,156 @@
+
+
+
+<!-- 
+   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div *ngFor = "let parent of treeArrObjects; let j = index">
+           <div [formArrayName]="parent.name">
+             
+
+   {{j}}:  {{parent.name}}
+
+         <div *ngFor="let exp of parent.name.controls; let i=index">
+           <div [formGroupName]="i">
+   
+
+
+       <div *ngFor = "let child of parent['children']">
+         {{parent['children'][child]}}
+         <input [formControlName]="child.key" placeholder="Experience">
+       </div>
+
+
+      </div>
+         </div>
+  </div>
+  </div>
+<button>Submit</button>
+   </form> -->
+
+
+
+<!-- 
+   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+ <div *ngFor = "let parent of treeArrObjects; let j = index">
+   parent:  {{parent.name}}
+              <div [formArrayName]="parent.name">
+    <div *ngFor="let exp of parent.name.controls; let i=index">
+      
+      <div *ngFor = "let child of parent['children']; let j = index">
+       <input [formControlName]="child" placeholder="Experience">
+      </div>
+    </div>
+    
+  </div>
+ </div>
+<button>Submit</button>
+
+   </form>
+
+
+
+    <pre>{{form.value | json}}</pre> -->
+
+
+
+
+
+
+   <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div *ngFor = "let parent of treeArrObjects; let i = index">
+   {{i}}:  {{parent.name}}
+   
+
+      <div *ngFor = "let child of parent['children']; let j = index">
+
+        {{parent.childObj[child]}}
+      </div>
+
+       <div *ngFor = "let child of parent.childObj | keyvalue">
+         {{child.key}}
+         
+
+
+      </div>
+
+  </div>
+
+   </form> -->
+<!-- <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+
+  <div *ngFor = "let parent of treeArrObjects; let i = index">
+  <div [formArrayName] = "parent.name"> -->
+
+    <!-- {{parent.name}}: {{parent.hasChild}}  -->
+    
+ <!-- <div *ngIf = "!parent.hasChild" [formGroupName]="i">
+    <label> {{parent.name}}
+      <input [formControlName] = "parent.name">
+
+      </label>
+</div>  
+                        
+    
+      <div *ngFor = "let child of parent.children; let j = index">
+             <label> {{child}}
+                  </label>
+                        <div [formGroupName]="j">
+
+                          <input [formControlName] = "child">
+                        </div>  
+              
+          
+
+              
+
+      </div>
+     
+</div>
+  
+  </div> -->
+
+
+
+
+
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+       <div formArrayName="anqnlc1wnigreretData">
+        <div *ngFor="let exp of anqnlc1wnigreretData.controls; let i=index">
+          <div [formGroupName]="i">
+           <div *ngFor = "let obj of childrentObjects1[anqnlc1wnigreretData] | keyvalue">
+              <input [formControlName]="obj.key" placeholder="Experience">
+            </div>
+          </div>
+        </div>
+       </div>
+       
+      
+      <button>Submit</button>
+    </form> -->
+
+
+    <pre>{{form.value | json}}</pre>
+
+ <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+
+
+  <div *ngFor = "let parent of treeArrObjects; let i = index">
+
+    <div [formArrayName]="parent.name">
+    {{parent.name}} :
+    <div *ngFor="let exp of parent.name.controls; let j=index">
+      <div [formGroupName]="j">
+      <div *ngFor = "let obj of childrentObjects1[parent.name] | keyvalue">
+        <input [formControlName]="obj.value" placeholder="Experience">
+      <!-- ----{{obj.key}}:{{obj.value}} -->
+      </div>
+
+     
+    </div>
+  </div>
+    </div>
+
+  </div>
+ </form>
+
