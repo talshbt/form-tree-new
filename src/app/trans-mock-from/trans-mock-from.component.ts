@@ -11,9 +11,9 @@ export class TransMockFromComponent implements OnInit {
 treeArrObjects =[];
 childrenArrObjects = [];
 childrentObjects1 = {};
-  constructor() { }
+constructor() { }
 
-  form;
+form;
 transDict = 
 {
   blockSend001Data: [],
@@ -35,7 +35,7 @@ transDict =
 
 }
 
- arr =[] ;
+//  arr =[] ;
 
 
   ngOnInit() {
@@ -172,85 +172,103 @@ transDict =
 
 
 
-  printForm(){
-
-     console.log(this.form)
-  
-    // for(var i =0; i < Object.values(this.form.controls).length; ++i){
-    //   console.log(Object.keys(this.form.controls)[i])
-    //   var formArray:any = (Object.values(this.form.controls)[i])
-
-    //        console.log(formArray.value)
-    // }
-// Object.values(this.form.controls).forEach(x=>{
-//   console.log(x.value)
-// })
-    // console.log(Object.values(this.form.controls))
-//  for(var item in this.form.controls){
-//       console.log(Object.values(item))
-//     }
- 
-   
-
-  }
-
-
-
-
-  printFormKeys(){
-    Object.keys(this.form.controls).forEach(key=>{
-      console.log(key)
-    })
-  }
-
-
-  printChildrenObjects(){
-          for(var item in this.treeArrObjects){
-            var keyName = this.treeArrObjects[item]['name'];
-       
-
-            console.log(this.treeArrObjects[item]['name'] +":")
-
-            var arr = Object.values(this.childrentObjects1[keyName])
-            arr.forEach(value =>{
-              console.log(value)
-            
-            })
-
-            
-          }
-
-            console.log(this.form)
-
-  }
-
-  
-  printObj(obj){
-      for(var key in obj){
-       console.log("key :" + key)
-       console.log("value : ")
-
-       console.log(obj[key])
-     }
-
-  }
-
-   printTreeArr(){
-      for(var item in this.treeArrObjects){
-        console.log(this.treeArrObjects[item].name)
-        var arr = this.treeArrObjects[item]['children'];
-
-        for(var child in arr){
-
-          console.log(arr[child])
-        }
-
-     }
-     console.log(this.treeArrObjects)
-    
-  }
-
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   printForm(){
+
+//      console.log(this.form)
+  
+//     // for(var i =0; i < Object.values(this.form.controls).length; ++i){
+//     //   console.log(Object.keys(this.form.controls)[i])
+//     //   var formArray:any = (Object.values(this.form.controls)[i])
+
+//     //        console.log(formArray.value)
+//     // }
+// // Object.values(this.form.controls).forEach(x=>{
+// //   console.log(x.value)
+// // })
+//     // console.log(Object.values(this.form.controls))
+// //  for(var item in this.form.controls){
+// //       console.log(Object.values(item))
+// //     }
+ 
+   
+
+//   }
+
+
+
+
+//   printFormKeys(){
+//     Object.keys(this.form.controls).forEach(key=>{
+//       console.log(key)
+//     })
+//   }
+
+
+//   printChildrenObjects(){
+//           for(var item in this.treeArrObjects){
+//             var keyName = this.treeArrObjects[item]['name'];
+       
+
+//             console.log(this.treeArrObjects[item]['name'] +":")
+
+//             var arr = Object.values(this.childrentObjects1[keyName])
+//             arr.forEach(value =>{
+//               console.log(value)
+            
+//             })
+
+            
+//           }
+
+//             console.log(this.form)
+
+//   }
+
+  
+//   printObj(obj){
+//       for(var key in obj){
+//        console.log("key :" + key)
+//        console.log("value : ")
+
+//        console.log(obj[key])
+//      }
+
+//   }
+
+//    printTreeArr(){
+//       for(var item in this.treeArrObjects){
+//         console.log(this.treeArrObjects[item].name)
+//         var arr = this.treeArrObjects[item]['children'];
+
+//         for(var child in arr){
+
+//           console.log(arr[child])
+//         }
+
+//      }
+//      console.log(this.treeArrObjects)
+    
+//   }
