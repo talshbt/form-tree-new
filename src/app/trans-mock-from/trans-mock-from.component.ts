@@ -76,15 +76,14 @@ export class TransMockFromComponent implements OnInit {
 
   fillForm() {
     this.createFormTemplate();
-    for (var item in this.treeMainDs) {
+    for (var parent in this.treeMainDs) {
       var controlObj = {};
-      if (!this.treeMainDs[item]["hasChild"]) {
-        controlObj[this.treeMainDs[item]["name"]] = this.treeMainDs[item][
+      if (!this.treeMainDs[parent]["hasChild"]) {
+        controlObj[this.treeMainDs[parent]["name"]] = this.treeMainDs[parent][
           "name"
         ];
       } else {
-        var children = this.treeMainDs[item]["children"];
-        console.log(children)
+        var children = this.treeMainDs[parent]["children"];
 
         for (var child in children) {
           controlObj[children[child]] = children[child];
@@ -97,13 +96,38 @@ export class TransMockFromComponent implements OnInit {
       for (let control in controlObj) {
         fg[control] = new FormControl(controlObj[control]);
       }
-      var controlName = this.treeMainDs[item]["name"];
+      var controlName = this.treeMainDs[parent]["name"];
       var formArrayOfControls = this.form.get(controlName) as FormArray;
 
       formArrayOfControls.push(new FormGroup(fg));
     }
   }
+
+
+
+
+
+createControlObj(item){
+  var controlObj = {};
+      if (!this.treeMainDs[item]["hasChild"]) {
+        controlObj[this.treeMainDs[item]["name"]] = this.treeMainDs[item][
+          "name"
+        ];
+      } else {
+        var children = this.treeMainDs[item]["children"];
+
+        for (var child in children) {
+          controlObj[children[child]] = children[child];
+        }
+      }
+
+    return controlObj;
 }
+}
+
+
+
+
 
 //   printForm(){
 
