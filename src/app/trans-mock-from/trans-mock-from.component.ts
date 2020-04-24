@@ -33,6 +33,9 @@ export class TransMockFromComponent implements OnInit {
 
     console.log("-----------------this.treeMainDs:-------------")
     console.log(this.treeMainDs)
+
+        console.log("-----------------this.form:-------------")
+    console.log(this.form)
   }
 
   createTreeMainDs() {
