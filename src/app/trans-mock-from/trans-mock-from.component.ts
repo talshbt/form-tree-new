@@ -83,10 +83,11 @@ export class TransMockFromComponent implements OnInit {
           "name"
         ];
       } else {
-        var arr = this.treeArrObjects[item]["children"];
+        var children = this.treeArrObjects[item]["children"];
+        console.log(children)
 
-        for (var child in arr) {
-          obj[arr[child]] = arr[child];
+        for (var child in children) {
+          obj[children[child]] = children[child];
         }
       }
 
