@@ -70,8 +70,8 @@ export class TransMockFromComponent implements OnInit {
     var formGroup = {};
     var arr = [];
     var obj = {};
-    for (var x of this.treeArrObjects) {
-      obj[x.name] = new FormArray([]);
+    for (var parent of this.treeArrObjects) {
+      obj[parent.name] = new FormArray([]);
     }
     this.form = new FormGroup(obj);
   }
