@@ -62,7 +62,7 @@ export class AppComponent {
     this.arrOfObj.push(this.expArray)
         this.arrOfObj.push(this.citiesArray)
 
-        console.log(this.arrOfObj)
+        // console.log(this.arrOfObj)
 
     let fg: any = {};
 
@@ -89,7 +89,7 @@ export class AppComponent {
 
     this.cities.push(new FormGroup(fg2));
 
-    console.log(this.form)
+    // console.log(this.form)
   }
 
   form = new FormGroup({
