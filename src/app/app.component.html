@@ -1,4 +1,34 @@
+
+
 <hello name="{{ name }}"></hello>
 <p>
-  Start editing to see some magic happen :)
+	Start editing to see some magic happen :)
 </p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+       <div formArrayName="cities">
+        <div *ngFor="let exp of cities.controls; let i=index">
+          <div [formGroupName]="i">
+            <div *ngFor="let e of citiesArray | keyvalue">
+              <input [formControlName]="e.key" placeholder="Experience">
+            </div>
+          </div>
+        </div>
+       </div>
+       
+      <div formArrayName="experiences">
+        <div *ngFor="let exp of experiences.controls; let n=index">
+          <div [formGroupName]="n">
+            <div *ngFor="let e of expArray | keyvalue">
+              <input [formControlName]="e.key" placeholder="Experience">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button>Submit</button>
+    </form>
+    
+    <pre>{{form.value | json}}</pre>
+
+    <button (click)="addCity()">Add City</button>
+    <button (click)="setPreset()">Set preset</button>
