@@ -4,6 +4,8 @@
 
    <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div *ngFor = "let parent of treeMainDs; let i = index">
+
+      <div [formArrayName]="parent.name">
    {{i+1}}:  {{parent.name}}
    
       <div *ngFor = "let child of parent['children']; let j = index">
@@ -11,7 +13,7 @@
       </div>
        <div *ngFor = "let child of parent.childObj | keyvalue">
          {{child.key}}
-         
+       </div>
       </div>
   </div>
    </form>
