@@ -60,7 +60,7 @@ transDict =
       var parentObj = {}
       parentObj['name'] = parent;
        if (!this.hasChildren(parent)) {
-          parentObj['id']  = counter++;
+          // parentObj['id']  = counter++;
           formArr.push(new FormControl(parent))
           parentObj['hasChild'] = false;
 
@@ -74,7 +74,7 @@ transDict =
         for (var child in this.transDict[parent]) {
           formArr.push(new FormControl(this.transDict[parent][child]))
           childObj[this.transDict[parent][child]] = this.transDict[parent][child];
-          childObj['id'] = counter++;
+          // childObj['id'] = counter++;
           children.push(this.transDict[parent][child])
         }
         console.log(childObj)
