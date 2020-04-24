@@ -124,7 +124,11 @@ console.log(Object.values(this.form.controls["anqnlc1wnigreretData"].controls[0]
 
   }
 
-
+ onSubmit() {
+    // console.log(this.cities.value); // ['SF', 'NY']
+    console.log(this.form.value); // { cities: ['SF', 'NY'] }
+    // console.log(this.cities);
+  }
 
 
 
