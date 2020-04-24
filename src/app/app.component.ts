@@ -29,19 +29,19 @@ export class AppComponent {
   };
 
 
-  dicr = {
-  "cities": [
+  dict = {
+  cities: [
     {
-      "city1": "sf",
-      "city2": "um",
-      "city3": "mi"
+      city1: "sf",
+      city2: "um",
+      city3: "mi"
     }
   ],
   "experiences": [
     {
-      "companyName": "CNM",
-      "jobTitle": "Web developer II",
-      "yearsWorked": 3
+      companyName: "CNM",
+      jobTitle: "Web developer II",
+      yearsWorked: 3
     }
   ]
 }
