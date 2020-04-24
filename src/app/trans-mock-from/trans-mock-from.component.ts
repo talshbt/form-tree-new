@@ -8,7 +8,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
   styleUrls: ["./trans-mock-from.component.css"]
 })
 export class TransMockFromComponent implements OnInit {
-  treeArrObjects = [];
+  treeMainDs = [];
 
   form;
 
@@ -26,15 +26,15 @@ export class TransMockFromComponent implements OnInit {
 
 
   ngOnInit() {
-    this.createTreeArrObjects();
+    this.createtreeMainDs();
 
     this.fillForm();
 
-    console.log("-----------------this.treeArrObjects:-------------")
-    console.log(this.treeArrObjects)
+    console.log("-----------------this.treeMainDs:-------------")
+    console.log(this.treeMainDs)
   }
 
-  createTreeArrObjects() {
+  createtreeMainDs() {
     var group = {};
     var counter = 0;
     for (var parent in this.transDict) {
@@ -59,7 +59,7 @@ export class TransMockFromComponent implements OnInit {
         parentObj["childObj"] = childObj;
       }
 
-      this.treeArrObjects.push(parentObj);
+      this.treeMainDs.push(parentObj);
     }
   }
   hasChildren(parent) {
@@ -68,7 +68,7 @@ export class TransMockFromComponent implements OnInit {
 
   createFormTemplate() {
     var templateFormobj = {};
-    for (var parent of this.treeArrObjects) {
+    for (var parent of this.treeMainDs) {
       templateFormobj[parent.name] = new FormArray([]);
     }
     this.form = new FormGroup(templateFormobj);
@@ -76,29 +76,29 @@ export class TransMockFromComponent implements OnInit {
 
   fillForm() {
     this.createFormTemplate();
-    for (var item in this.treeArrObjects) {
-      var obj = {};
-      if (!this.treeArrObjects[item]["hasChild"]) {
-        obj[this.treeArrObjects[item]["name"]] = this.treeArrObjects[item][
+    for (var item in this.treeMainDs) {
+      var controlObj = {};
+      if (!this.treeMainDs[item]["hasChild"]) {
+        controlObj[this.treeMainDs[item]["name"]] = this.treeMainDs[item][
           "name"
         ];
       } else {
-        var children = this.treeArrObjects[item]["children"];
+        var children = this.treeMainDs[item]["children"];
         console.log(children)
 
         for (var child in children) {
-          obj[children[child]] = children[child];
+          controlObj[children[child]] = children[child];
         }
       }
 
       let fg: any = {};
 
 
-      for (let control in obj) {
-        fg[control] = new FormControl(obj[control]);
+      for (let control in controlObj) {
+        fg[control] = new FormControl(controlObj[control]);
       }
-      var name = this.treeArrObjects[item]["name"];
-      var fa = this.form.get(name) as FormArray;
+      var controlName = this.treeMainDs[item]["name"];
+      var fa = this.form.get(controlName) as FormArray;
 
       fa.push(new FormGroup(fg));
     }
@@ -132,10 +132,10 @@ export class TransMockFromComponent implements OnInit {
 //   }
 
 //   printChildrenObjects(){
-//           for(var item in this.treeArrObjects){
-//             var keyName = this.treeArrObjects[item]['name'];
+//           for(var item in this.treeMainDs){
+//             var keyName = this.treeMainDs[item]['name'];
 
-//             console.log(this.treeArrObjects[item]['name'] +":")
+//             console.log(this.treeMainDs[item]['name'] +":")
 
 //             var arr = Object.values(this.childrentObjects1[keyName])
 //             arr.forEach(value =>{
@@ -160,9 +160,9 @@ export class TransMockFromComponent implements OnInit {
 //   }
 
 //    printTreeArr(){
-//       for(var item in this.treeArrObjects){
-//         console.log(this.treeArrObjects[item].name)
-//         var arr = this.treeArrObjects[item]['children'];
+//       for(var item in this.treeMainDs){
+//         console.log(this.treeMainDs[item].name)
+//         var arr = this.treeMainDs[item]['children'];
 
 //         for(var child in arr){
 
@@ -170,6 +170,6 @@ export class TransMockFromComponent implements OnInit {
 //         }
 
 //      }
-//      console.log(this.treeArrObjects)
+//      console.log(this.treeMainDs)
 
 //   }

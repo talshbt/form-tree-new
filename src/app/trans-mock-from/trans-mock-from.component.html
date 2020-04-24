@@ -3,7 +3,7 @@
  <!-- <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
 
 
-  <div *ngFor = "let parent of treeArrObjects; let i = index">
+  <div *ngFor = "let parent of treeMainDs; let i = index">
 
     <div [formArrayName]="parent.name">
     {{parent.name}} :
@@ -22,7 +22,7 @@
  </form> -->
 
    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div *ngFor = "let parent of treeArrObjects; let i = index">
+  <div *ngFor = "let parent of treeMainDs; let i = index">
    {{i+1}}:  {{parent.name}}
    
       <div *ngFor = "let child of parent['children']; let j = index">
