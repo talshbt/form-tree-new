@@ -55,12 +55,10 @@ transDict =
     var group = {}
     var counter = 0;
     for (var parent in this.transDict) {
-
       var formArr = [];
       var parentObj = {}
       parentObj['name'] = parent;
        if (!this.hasChildren(parent)) {
-          // parentObj['id']  = counter++;
           formArr.push(new FormControl(parent))
           parentObj['hasChild'] = false;
 
@@ -74,10 +72,8 @@ transDict =
         for (var child in this.transDict[parent]) {
           formArr.push(new FormControl(this.transDict[parent][child]))
           childObj[this.transDict[parent][child]] = this.transDict[parent][child];
-          // childObj['id'] = counter++;
           children.push(this.transDict[parent][child])
         }
-        console.log(childObj)
         parentObj['children'] = children;
         parentObj['childObj'] = childObj
         
@@ -124,30 +120,6 @@ transDict =
 
 
 
-  printObj(obj){
-      for(var key in obj){
-       console.log("key :" + key)
-       console.log("value : ")
-
-       console.log(obj[key])
-     }
-
-  }
-
-   printTreeArr(){
-      for(var item in this.treeArrObjects){
-        console.log(this.treeArrObjects[item].name)
-        var arr = this.treeArrObjects[item]['children'];
-
-        for(var child in arr){
-
-          console.log(arr[child])
-        }
-
-     }
-     console.log(this.treeArrObjects)
-    
-  }
 
 
   fillForm(){
@@ -195,15 +167,9 @@ transDict =
 
   }
       
-      // this.printForm();
 
-      // this.printChildrenObjects()
   }
 
-
-  addToFormArr(fg){
-    console.log(this.form)
-  }
 
 
   printForm(){
@@ -256,6 +222,32 @@ transDict =
 
             console.log(this.form)
 
+  }
+
+  
+  printObj(obj){
+      for(var key in obj){
+       console.log("key :" + key)
+       console.log("value : ")
+
+       console.log(obj[key])
+     }
+
+  }
+
+   printTreeArr(){
+      for(var item in this.treeArrObjects){
+        console.log(this.treeArrObjects[item].name)
+        var arr = this.treeArrObjects[item]['children'];
+
+        for(var child in arr){
+
+          console.log(arr[child])
+        }
+
+     }
+     console.log(this.treeArrObjects)
+    
   }
 
 
