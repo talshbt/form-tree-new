@@ -1,25 +1,6 @@
 
 
- <!-- <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
 
-
-  <div *ngFor = "let parent of treeMainDs; let i = index">
-
-    <div [formArrayName]="parent.name">
-    {{parent.name}} :
-    <div *ngFor="let exp of parent.name.controls; let j=index">
-      <div [formGroupName]="j">
-      <div *ngFor = "let obj of childrentObjects1[parent.name] | keyvalue">
-        {{obj.key}}
-      </div>
-
-     
-    </div>
-  </div>
-    </div>
-
-  </div>
- </form> -->
 
    <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div *ngFor = "let parent of treeMainDs; let i = index">
