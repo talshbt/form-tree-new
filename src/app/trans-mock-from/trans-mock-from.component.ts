@@ -165,7 +165,6 @@ transDict =
         var arr = this.treeArrObjects[item]['children'];
        
         for(var child in arr){
-          // console.log(arr[child])
           obj[arr[child]] = arr[child];
        
         }
@@ -198,7 +197,7 @@ transDict =
       
       // this.printForm();
 
-      this.printChildrenObjects()
+      // this.printChildrenObjects()
   }
 
 
