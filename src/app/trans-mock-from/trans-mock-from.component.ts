@@ -38,7 +38,7 @@ export class TransMockFromComponent implements OnInit {
     // console.log(this.form)
 
 
-this.displayData();
+// this.displayData();
    
   }
 
@@ -54,7 +54,7 @@ this.displayData();
     for(var x of objectx){
       var values = Object.values(x);
       for(var val in values){
-        console.log(values[va])
+        console.log(values[val])
       }
     }
 
@@ -89,6 +89,10 @@ this.displayData();
 
       this.treeMainDs.push(parentObj);
     }
+    console.log("treeMainDs")
+    console.dir(this.treeMainDs)
+    console.log("treeMainDs end")
+
   }
 
 
@@ -98,6 +102,10 @@ this.displayData();
       templateFormobj[parent.name] = new FormArray([]);
     }
     this.form = new FormGroup(templateFormobj);
+
+    console.log("createFormTemplate -> form")
+    console.dir(this.form)
+    console.log("createFormTemplate -> end")
   }
 
   fillFormWithTreeDsData() {
@@ -111,6 +119,12 @@ this.displayData();
 
       formArrayOfControls.push(new FormGroup(formGroup));
     }
+
+    console.log("fillFormWithTreeDsData -> form")
+    console.dir(this.form)
+    console.log("fillFormWithTreeDsData -> end")
+
+
   }
 
 
