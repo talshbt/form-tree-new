@@ -69,11 +69,11 @@ export class TransMockFromComponent implements OnInit {
   createFormTemplate() {
     var formGroup = {};
     var arr = [];
-    var obj = {};
+    var templateFormobj = {};
     for (var parent of this.treeArrObjects) {
-      obj[parent.name] = new FormArray([]);
+      templateFormobj[parent.name] = new FormArray([]);
     }
-    this.form = new FormGroup(obj);
+    this.form = new FormGroup(templateFormobj);
   }
 
   fillForm() {
