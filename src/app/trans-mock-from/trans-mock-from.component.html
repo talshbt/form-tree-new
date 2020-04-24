@@ -21,3 +21,12 @@
 
 
        <pre>{{form.value | json}}</pre>
+
+  <div *ngFor = "let parent of treeMainDs; let i = index">
+
+   <div *ngFor = "let nig1 of form.value[parent.name]; let j = index" >
+      <label> {{(this.form.value[parent.name])[j]}}
+      </label>
+
+    </div>
+  </div>

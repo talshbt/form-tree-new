@@ -31,11 +31,35 @@ export class TransMockFromComponent implements OnInit {
 
     this.fillFormWithTreeDsData();
 
-    console.log("-----------------this.treeMainDs:-------------")
-    console.log(this.treeMainDs)
+    // console.log("-----------------this.treeMainDs:-------------")
+    // console.log(this.treeMainDs)
 
-        console.log("-----------------this.form:-------------")
-    console.log(this.form)
+    //     console.log("-----------------this.form:-------------")
+    // console.log(this.form)
+
+
+this.displayData();
+   
+  }
+
+
+  displayData(){
+
+    for (var parent in this.treeMainDs) {
+      var name = this.treeMainDs[parent]["name"]
+      // console.log(name)
+
+      var objectx = this.form.value[name];
+      // console.log(objectx)
+    for(var x of objectx){
+      var values = Object.values(x);
+      for(var val in values){
+        console.log(values[va])
+      }
+    }
+
+    // console.log(Object.values(objectx[0]))
+        }
   }
 
   createTreeMainDs() {
