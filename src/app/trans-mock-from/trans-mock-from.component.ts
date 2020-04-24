@@ -79,11 +79,11 @@ export class TransMockFromComponent implements OnInit {
     for (var parent in this.treeMainDs) {
       var controlObj = this.createControlObj(parent)
 
-      let forGroup = this.addControlToFormControl(controlObj)
+      let formGroup = this.addControlToFormControl(controlObj)
       var controlName = this.treeMainDs[parent]["name"];
       var formArrayOfControls = this.form.get(controlName) as FormArray;
 
-      formArrayOfControls.push(new FormGroup(forGroup));
+      formArrayOfControls.push(new FormGroup(formGroup));
     }
   }
 
