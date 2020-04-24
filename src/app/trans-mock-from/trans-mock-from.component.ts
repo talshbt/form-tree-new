@@ -63,9 +63,7 @@ export class TransMockFromComponent implements OnInit {
       this.treeMainDs.push(parentObj);
     }
   }
-  hasChildren(parent) {
-    return this.transDict[parent].length > 0;
-  }
+
 
   createFormTemplate() {
     var templateFormobj = {};
@@ -88,11 +86,6 @@ export class TransMockFromComponent implements OnInit {
     }
   }
 
-
-  getFormArray(parent){
-      var controlName = this.treeMainDs[parent]["name"];
-      return this.form.get(controlName) as FormArray;
-  }
 
 
 
@@ -126,6 +119,15 @@ addControlToFormControl(controlObj){
 
       return formGroup;
 }
+
+  hasChildren(parent) {
+    return this.transDict[parent].length > 0;
+  }
+  getFormArray(parent){
+      var controlName = this.treeMainDs[parent]["name"];
+      return this.form.get(controlName) as FormArray;
+  }
+
 }
 
 
