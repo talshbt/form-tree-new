@@ -11,9 +11,11 @@ export class TransMockFromComponent implements OnInit {
   treeArrObjects = [];
   childrenArrObjects = [];
   childrentObjects1 = {};
+  form;
+
   constructor() {}
 
-  form;
+ 
   transDict = {
     blockSend001Data: [],
     anqnlc1wnigreretData: ["sugNigreretInt", "sugPirteyMahaduraInt"],
