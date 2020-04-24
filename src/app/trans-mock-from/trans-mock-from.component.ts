@@ -30,7 +30,6 @@ export class TransMockFromComponent implements OnInit {
     this.createTreeMainDs();
 
     this.fillFormWithTreeDsData();
-
     // console.log("-----------------this.treeMainDs:-------------")
     // console.log(this.treeMainDs)
 
@@ -39,7 +38,11 @@ export class TransMockFromComponent implements OnInit {
 
 
 // this.displayData();
-   
+    console.log("ngOnInit -> form")
+    console.log(this.form)
+    console.log("ngOnInit -> end")
+console.log(Object.values(this.form.controls["anqnlc1wnigreretData"].controls[0].controls).length)
+
   }
 
 
@@ -89,9 +92,7 @@ export class TransMockFromComponent implements OnInit {
 
       this.treeMainDs.push(parentObj);
     }
-    console.log("treeMainDs")
-    console.dir(this.treeMainDs)
-    console.log("treeMainDs end")
+   
 
   }
 
@@ -103,9 +104,7 @@ export class TransMockFromComponent implements OnInit {
     }
     this.form = new FormGroup(templateFormobj);
 
-    console.log("createFormTemplate -> form")
-    console.dir(this.form)
-    console.log("createFormTemplate -> end")
+    
   }
 
   fillFormWithTreeDsData() {
@@ -120,9 +119,7 @@ export class TransMockFromComponent implements OnInit {
       formArrayOfControls.push(new FormGroup(formGroup));
     }
 
-    console.log("fillFormWithTreeDsData -> form")
-    console.dir(this.form)
-    console.log("fillFormWithTreeDsData -> end")
+   
 
 
   }

@@ -1,5 +1,5 @@
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
 
 
@@ -22,20 +22,44 @@
 		</div>
 
 	</div>
+</form> -->
+
+
+<br>
+
+
+
+
+
+
+
+<pre>{{form.value | json}}</pre>
+
+
+
+
+
+
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div *ngFor="let parent of treeMainDs; let j = index">
+   
+<div [formArrayName]="parent.name"
+  *ngFor="let item of form.get(parent.name).controls; let i = index;">
+  <div [formGroupName]="i">
+    <div *ngFor="let exp of parent.childObj | keyvalue; ">
+    <input [formControlName]="exp.key" [placeholder]="exp.key">
+    </div>
+
+     <div *ngIf = "!parent.hasChild">
+    <input  [formControlName]="parent.name">
+    </div>
+   
+  </div>
+
+<!-- {{ form.controls.anqnlc1wnigreretData.controls[i].controls.sugNigreretInt.value }} -->
+</div>
+	</div>
 </form>
-
-
-<br><br><br>
-
-
-
-
-<pre>{{form.value | json}}</pre>
-
-
-
-
-
-
-
-<pre>{{form.value | json}}</pre>
