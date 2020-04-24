@@ -30,6 +30,9 @@ export class TransMockFromComponent implements OnInit {
     this.createTreeArrObjects();
 
     this.fillForm();
+
+    console.log("-----------------this.treeArrObjects:-------------")
+    console.log(this.treeArrObjects)
   }
 
   createTreeArrObjects() {
