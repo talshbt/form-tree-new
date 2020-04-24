@@ -77,18 +77,7 @@ export class TransMockFromComponent implements OnInit {
   fillForm() {
     this.createFormTemplate();
     for (var parent in this.treeMainDs) {
-      var controlObj = {};
-      if (!this.treeMainDs[parent]["hasChild"]) {
-        controlObj[this.treeMainDs[parent]["name"]] = this.treeMainDs[parent][
-          "name"
-        ];
-      } else {
-        var children = this.treeMainDs[parent]["children"];
-
-        for (var child in children) {
-          controlObj[children[child]] = children[child];
-        }
-      }
+      var controlObj = this.createControlObj(parent)
 
       let fg: any = {};
 
@@ -107,14 +96,14 @@ export class TransMockFromComponent implements OnInit {
 
 
 
-createControlObj(item){
+createControlObj(parent){
   var controlObj = {};
-      if (!this.treeMainDs[item]["hasChild"]) {
-        controlObj[this.treeMainDs[item]["name"]] = this.treeMainDs[item][
+      if (!this.treeMainDs[parent]["hasChild"]) {
+        controlObj[this.treeMainDs[parent]["name"]] = this.treeMainDs[parent][
           "name"
         ];
       } else {
-        var children = this.treeMainDs[item]["children"];
+        var children = this.treeMainDs[parent]["children"];
 
         for (var child in children) {
           controlObj[children[child]] = children[child];
