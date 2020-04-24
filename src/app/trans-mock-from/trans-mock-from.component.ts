@@ -9,8 +9,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 })
 export class TransMockFromComponent implements OnInit {
   treeArrObjects = [];
-  childrenArrObjects = [];
-  childrentObjects1 = {};
+
   form;
 
   constructor() {}
@@ -95,9 +94,6 @@ export class TransMockFromComponent implements OnInit {
 
       let fg: any = {};
 
-      // console.log(obj)
-      this.childrentObjects1[this.treeArrObjects[item]["name"]] = obj;
-      this.childrenArrObjects.push(obj);
 
       for (let control in obj) {
         fg[control] = new FormControl(obj[control]);

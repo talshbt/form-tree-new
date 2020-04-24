@@ -1,6 +1,6 @@
 
 
- <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+ <!-- <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
 
 
   <div *ngFor = "let parent of treeArrObjects; let i = index">
@@ -19,11 +19,11 @@
     </div>
 
   </div>
- </form>
+ </form> -->
 
    <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div *ngFor = "let parent of treeArrObjects; let i = index">
-   {{i}}:  {{parent.name}}
+   {{i+1}}:  {{parent.name}}
    
       <div *ngFor = "let child of parent['children']; let j = index">
         {{parent.childObj[child]}}
