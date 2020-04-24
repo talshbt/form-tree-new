@@ -98,9 +98,9 @@ export class TransMockFromComponent implements OnInit {
         fg[control] = new FormControl(controlObj[control]);
       }
       var controlName = this.treeMainDs[item]["name"];
-      var fa = this.form.get(controlName) as FormArray;
+      var formArrayOfControls = this.form.get(controlName) as FormArray;
 
-      fa.push(new FormGroup(fg));
+      formArrayOfControls.push(new FormGroup(fg));
     }
   }
 }
