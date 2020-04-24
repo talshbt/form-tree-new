@@ -26,15 +26,16 @@ export class TransMockFromComponent implements OnInit {
 
 
   ngOnInit() {
-    this.createtreeMainDs();
+    
+    this.createTreeMainDs();
 
-    this.fillForm();
+    this.fillFormWithTreeDsData();
 
     console.log("-----------------this.treeMainDs:-------------")
     console.log(this.treeMainDs)
   }
 
-  createtreeMainDs() {
+  createTreeMainDs() {
     var group = {};
     var counter = 0;
     for (var parent in this.transDict) {
@@ -74,7 +75,7 @@ export class TransMockFromComponent implements OnInit {
     this.form = new FormGroup(templateFormobj);
   }
 
-  fillForm() {
+  fillFormWithTreeDsData() {
     this.createFormTemplate();
     for (var parent in this.treeMainDs) {
       var controlObj = this.createControlObj(parent)
