@@ -33,10 +33,10 @@ export class TransMockFromComponent implements OnInit {
 
     // this.getFormArray("anqnlc1wnigreretData")
     var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
-    console.log(arr.value[0])
-    for(var item in arr.value[0]){
-      console.log(item)
-    }
+    console.log(arr.value)
+    // for(var item in arr.value[0]){
+    //   console.log(item)
+    // }
 
 
 
