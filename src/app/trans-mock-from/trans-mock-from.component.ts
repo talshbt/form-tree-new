@@ -28,8 +28,25 @@ export class TransMockFromComponent implements OnInit {
   ngOnInit() {
     
     this.createTreeMainDs();
-
     this.fillFormWithTreeDsData();
+    console.log(this.form.controls)
+
+    // this.getFormArray("anqnlc1wnigreretData")
+    var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
+    console.log(arr.value[0])
+    for(var item in arr.value[0]){
+      console.log(item)
+    }
+
+
+
+
+
+
+
+
+
+
     // console.log("-----------------this.treeMainDs:-------------")
     // console.log(this.treeMainDs)
 
@@ -38,31 +55,31 @@ export class TransMockFromComponent implements OnInit {
 
 
 // this.displayData();
-    console.log("ngOnInit -> form")
-    console.log(this.form)
-    console.log("ngOnInit -> end")
-console.log(Object.values(this.form.controls["anqnlc1wnigreretData"].controls[0].controls).length)
+    // console.log("ngOnInit -> form")
+    // console.log(this.form)
+    // console.log("ngOnInit -> end")
+// console.log(Object.values(this.form.controls["anqnlc1wnigreretData"].controls[0].controls).length)
 
   }
 
 
   displayData(){
 
-    for (var parent in this.treeMainDs) {
-      var name = this.treeMainDs[parent]["name"]
-      // console.log(name)
+    // for (var parent in this.treeMainDs) {
+    //   var name = this.treeMainDs[parent]["name"]
+    //   // console.log(name)
 
-      var objectx = this.form.value[name];
-      // console.log(objectx)
-    for(var x of objectx){
-      var values = Object.values(x);
-      for(var val in values){
-        console.log(values[val])
-      }
-    }
+    //   var objectx = this.form.value[name];
+    //   // console.log(objectx)
+    // for(var x of objectx){
+    //   var values = Object.values(x);
+    //   for(var val in values){
+    //     console.log(values[val])
+    //   }
+    // }
 
-    // console.log(Object.values(objectx[0]))
-        }
+    // // console.log(Object.values(objectx[0]))
+    //     }
   }
 
   createTreeMainDs() {

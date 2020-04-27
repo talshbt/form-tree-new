@@ -17,7 +17,6 @@
 
 
 
-
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 	<div *ngFor="let parent of treeMainDs; let j = index">
    
@@ -41,3 +40,14 @@
         <button>Submit</button>
 
 </form>
+
+
+
+<br><br>
+
+	<div *ngFor="let parent of form.controls |keyvalue ; let j = index">
+   {{j}} :{{parent.key}}
+    <div *ngFor="let item of form.get(parent.key).controls|keyvalue; let i = index;">   	
+      {{form.get(parent.key).controls.i}}
+  </div>
+	</div>
