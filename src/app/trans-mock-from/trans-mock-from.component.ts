@@ -117,32 +117,6 @@ export class TransMockFromComponent implements OnInit {
 
 
 
-  printTreeDs2(){
-    var group = {};
-    var formArr = [];
-    var parentObj = {};
-    for (var parent in this.transDict2) {
-      // console.log(parent)
-      // console.log(this.transDict2[parent])
-
-      for(var children in this.transDict2[parent]){
-        console.log("current child:")
-        var currentChild = this.transDict2[parent][children];
-        
-        var keys =  Object.keys(currentChild)
-        var values = Object.values(currentChild);
-        console.log(keys[0]+": " + values[0])
-        
-
-          
-
-      }
-      // console.log(this.treeMainDs2[parent]["name"])
-      // console.log(this.treeMainDs2[parent]['childObj'])
-
-    
-    }
-  }
 
 
   createTransDict2(){
