@@ -30,12 +30,12 @@ export class TransMockFromComponent implements OnInit {
     blockSend001Data: [],
     anqnlc1wnigreretData: 
     [
-      {"sugNigreretInt":""}, 
-      {"sugPirteyMahaduraInt": ""}
+      {sugNigreretInt:""}, 
+      {sugPirteyMahaduraInt: ""}
     ],
     blockReceive001Data: [],
-    anqnlc11nigreretData: [{"sugNigreretInt":""}],
-    anqtlc1wnigreretData: [{"sugNigreretInt":""}],
+    anqnlc11nigreretData: [{sugNigreretInt:""}],
+    anqtlc1wnigreretData: [{sugNigreretInt:""}],
     trqra001nigreretData: []
   };
 
@@ -48,54 +48,13 @@ export class TransMockFromComponent implements OnInit {
 
     // this.getFormArray("anqnlc1wnigreretData")
     var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
-    // console.log(arr.value)
-    // for(var item in arr.value[0]){
-    //   console.log(item)
-    // }
-
-
-
-this.createTreeMainDs2();
-
-
-
-
-
-
-    // console.log("-----------------this.treeMainDs:-------------")
-    // console.log(this.treeMainDs)
-
-    //     console.log("-----------------this.form:-------------")
-    // console.log(this.form)
-
-
-// this.displayData();
-    // console.log("ngOnInit -> form")
-    // console.log(this.form)
-    // console.log("ngOnInit -> end")
-// console.log(Object.values(this.form.controls["anqnlc1wnigreretData"].controls[0].controls).length)
+  //  this.printTreeDs2()
+   this.createNewObjectToForm()
 
   }
 
 
-  displayData(){
 
-    // for (var parent in this.treeMainDs) {
-    //   var name = this.treeMainDs[parent]["name"]
-    //   // console.log(name)
-
-    //   var objectx = this.form.value[name];
-    //   // console.log(objectx)
-    // for(var x of objectx){
-    //   var values = Object.values(x);
-    //   for(var val in values){
-    //     console.log(values[val])
-    //   }
-    // }
-
-    // // console.log(Object.values(objectx[0]))
-    //     }
-  }
 
   createTreeMainDs() {
     var group = {};
@@ -133,58 +92,50 @@ this.createTreeMainDs2();
     var group = {};
     var formArr = [];
     var parentObj = {};
-    for (var parent in this.treeMainDs2) {
-      console.log(this.treeMainDs2[parent]["name"])
-      console.log(this.treeMainDs2[parent]['childObj'])
+    for (var parent in this.transDict2) {
+      // console.log(parent)
+      // console.log(this.transDict2[parent])
 
-      //  parentObj["name"] = this.treeMainDs2[parent]["name"];
-      //  if (!this.treeMainDs2[parent]["hasChild"]) {
-      //   formArr.push(this.treeMainDs2[parent]);
-      //   parentObj["hasChild"] = false;
-      // } else {
-      //   var childObj = {};
-      //   parentObj["hasChild"] = true;
-      //     for (var child in this.treeMainDs2[chil]) {
-      //     formArr.push(this.transDict[parent][child]);
-      //     childObj[this.transDict[parent][child]] = this.transDict[parent][
-      //       child
-      //     ];
-      //     // children.push(this.transDict[parent][child]);
-      //   }
+      for(var children in this.transDict2[parent]){
+        console.log("current child:")
+        var currentChild = this.transDict2[parent][children];
+        
+        var keys =  Object.keys(currentChild)
+        var values = Object.values(currentChild);
+        console.log(keys[0]+": " + values[0])
+        
 
-      // }
-      // console.log(this.treeMainDs2[parent]["name"])
-    }
-  }
-  createTreeMainDs2() {
-    var group = {};
-    for (var parent in this.transDict) {
-      var formArr = [];
-      var parentObj = {};
-      parentObj["name"] = parent;
-      if (!this.hasChildren(parent)) {
-        formArr.push(parent);
-        parentObj["hasChild"] = false;
-      } else {
-        var childObj = {};
-        parentObj["hasChild"] = true;
-        for (var child in this.transDict[parent]) {
-          formArr.push(this.transDict[parent][child]);
-          childObj[this.transDict[parent][child]] = this.transDict[parent][
-            child
-          ];
-          // children.push(this.transDict[parent][child]);
-        }
-        parentObj["childObj"] = childObj;
+          
+
       }
+      // console.log(this.treeMainDs2[parent]["name"])
+      // console.log(this.treeMainDs2[parent]['childObj'])
 
-      this.treeMainDs2.push(parentObj);
+    
     }
+  }
 
-    // console.log(this.treeMainDs2)
-   this.printTreeDs2();
+
+  createNewObjectToForm(){
+        var treeArrDs = []
+        for (var parent in this.transDict) {
+          var parentObj = {}
+          var key = parent;
+          var values = [];
+          for(var child in this.transDict[parent]){
+            var childObj = {}
+            childObj[this.transDict[parent][child]] = ""
+            values.push(childObj)
+          }
+          treeArrDs[key] = values;
+
+          
+        }
+
+        console.log()
 
   }
+  
 
   createFormTemplate() {
     var templateFormobj = {};
