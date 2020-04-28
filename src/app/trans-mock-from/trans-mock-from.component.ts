@@ -126,10 +126,14 @@ export class TransMockFromComponent implements OnInit {
             childObj[this.transDict[parent][child]] = ""
             values.push(childObj)
           }
-          this.treeMainDs2[key] = values;
+          parentObj[key] = values;
+          this.treeMainDs2.push(parentObj)
 
           
         }
+
+
+        
 
         console.log(this.treeMainDs2)
 
