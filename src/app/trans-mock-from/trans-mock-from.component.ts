@@ -227,10 +227,11 @@ createControlObj(parent){
         ];
       } else {
         var children2 = this.treeMainDs[parent]["childObj"];
+              // console.log(children2)
 
-
+  console.log("start:")
          for (var child in children2) {
-          //  console.log(child)
+           console.log(child)
              controlObj[child] = child;
 
         }
@@ -245,10 +246,16 @@ createControlObj2(parent){
         controlObj[parent] = parent
       } else {
 
-        // console.log(this.transDict2[parent])
+        console.log(this.transDict2[parent])
 
         for (var childObj in this.transDict2[parent]) {
-                  //  console.log(this.transDict2[parent][childObj])
+          console.log(Object.keys(this.transDict2[parent][childObj])[0])
+          var child = Object.keys(this.transDict2[parent][childObj])[0];
+
+          controlObj[child] = child;
+
+          
+                    // console.log(this.transDict2[parent][childObj])
                     // parentObj["childObj"] = childObj
                  }
         // var children2 = this.treeMainDs[parent]["childObj"];
