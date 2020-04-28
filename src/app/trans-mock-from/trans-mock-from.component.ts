@@ -62,18 +62,15 @@ export class TransMockFromComponent implements OnInit {
     var group = {};
     var counter = 0;
     for (var parent in this.transDict) {
-      var formArr = [];
       var parentObj = {};
       parentObj["name"] = parent;
       if (!this.hasChildren(parent)) {
-        formArr.push(new FormControl(parent));
         parentObj["hasChild"] = false;
       } else {
         var children = [];
         var childObj = {};
         parentObj["hasChild"] = true;
         for (var child in this.transDict[parent]) {
-          formArr.push(new FormControl(this.transDict[parent][child]));
           childObj[this.transDict[parent][child]] = this.transDict[parent][
             child
           ];
@@ -88,6 +85,31 @@ export class TransMockFromComponent implements OnInit {
    
 
   }
+
+
+    createTreeMainDs2() {
+    var group = {};
+    for (var parent in this.transDict2) {
+      var formArr = [];
+      var parentObj = {};
+      parentObj["name"] = parent;
+       if (!this.hasChildren(parent)) {
+        formArr.push(new FormControl(parent));
+        parentObj["hasChild"] = false;
+      } else {
+         parentObj["hasChild"] = true;
+                 for (var childObj in this.transDict2[parent]) {
+                   console.log(this.transDict2[parent][childObj])
+                   
+                 }
+
+      }
+    }
+
+   
+
+  }
+
 
 
   printTreeDs2(){
@@ -147,15 +169,6 @@ export class TransMockFromComponent implements OnInit {
   }
 
 
-  createTreeMainDs2() {
-    var group = {};
-    var counter = 0;
-    for (var parent in this.transDict2) {
-     console.log(parent)
-    }
-   
-
-  }
 
   
 
