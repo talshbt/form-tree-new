@@ -14,6 +14,7 @@ export class TransMockFromComponent implements OnInit {
 
   treeMainDsHelper2 = [];
   form;
+  form2;
 
   constructor() {}
 
@@ -182,15 +183,16 @@ export class TransMockFromComponent implements OnInit {
     for (var parent in this.transDict2) {
       templateFormobj[parent] = new FormArray([]);
     }
-    this.form = new FormGroup(templateFormobj);
+    this.form2 = new FormGroup(templateFormobj);
 
     
   }
 
     fillFormWithTreeDsData2() {
-    // this.createFormTemplate();
+     this.createFormTemplate2();
     for (var parent in this.transDict2) {
-      // console.log(parent)
+      console.log("asfas")
+       console.log(parent)
       // var controlObj = this.createControlObj(parent)
 
       // let formGroup = this.addControlToFormControl(controlObj)
