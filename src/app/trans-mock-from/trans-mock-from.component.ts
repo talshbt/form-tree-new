@@ -245,23 +245,13 @@ createControlObj(parent){
       } else {
         var children = this.treeMainDs[parent]["children"];
         var children2 = this.treeMainDs[parent]["childObj"];
-        // console.log("children:")
-        //         console.log(children)
-        // console.log("children2:")
 
-        // console.log(children2)
-          //  console.log("child:")
 
          for (var child in children2) {
              controlObj[child] = child;
-          // console.log(child);
 
         }
-                            //  console.log("end child:")
-
-        // for (var child in children) {
-        //   controlObj[children[child]] = children[child];
-        // }
+        
       }
 
     return controlObj;
