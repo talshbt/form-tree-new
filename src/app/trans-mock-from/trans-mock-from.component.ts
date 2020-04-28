@@ -135,7 +135,7 @@ export class TransMockFromComponent implements OnInit {
 
         
 
-        console.log(this.treeMainDs2)
+        console.log(Object.keys(this.treeMainDs2[0])[0])
 
   }
   
