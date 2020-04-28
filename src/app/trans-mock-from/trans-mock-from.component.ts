@@ -113,6 +113,13 @@ this.createTreeMainDs2();
    
 
   }
+
+
+  printTreeDs2(){
+    for (var parent in this.treeMainDs2) {
+      console.log(this.treeMainDs2[parent]["name"])
+    }
+  }
   createTreeMainDs2() {
     var group = {};
     var counter = 0;
@@ -139,8 +146,8 @@ this.createTreeMainDs2();
       this.treeMainDs2.push(parentObj);
     }
 
-    console.log(this.treeMainDs2)
-   
+    // console.log(this.treeMainDs2)
+   this.printTreeDs2();
 
   }
 
