@@ -10,6 +10,8 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 export class TransMockFromComponent implements OnInit {
   treeMainDs = [];
   transDictArr = [];
+    transDict2 = {};
+
   treeMainDsHelper2 = [];
   form;
 
@@ -26,18 +28,18 @@ export class TransMockFromComponent implements OnInit {
   };
 
 
-    transDict2 = {
-    blockSend001Data: [],
-    anqnlc1wnigreretData: 
-    [
-      {sugNigreretInt:""}, 
-      {sugPirteyMahaduraInt: ""}
-    ],
-    blockReceive001Data: [],
-    anqnlc11nigreretData: [{sugNigreretInt:""}],
-    anqtlc1wnigreretData: [{sugNigreretInt:""}],
-    trqra001nigreretData: []
-  };
+  //   transDict2 = {
+  //   blockSend001Data: [],
+  //   anqnlc1wnigreretData: 
+  //   [
+  //     {sugNigreretInt:""}, 
+  //     {sugPirteyMahaduraInt: ""}
+  //   ],
+  //   blockReceive001Data: [],
+  //   anqnlc11nigreretData: [{sugNigreretInt:""}],
+  //   anqtlc1wnigreretData: [{sugNigreretInt:""}],
+  //   trqra001nigreretData: []
+  // };
 
 
   ngOnInit() {
@@ -129,14 +131,18 @@ export class TransMockFromComponent implements OnInit {
           }
           parentObj[key] = values;
           this.transDictArr.push(parentObj)
+          this.transDict2[key] = values;
 
           
         }
 
+        console.log(this.transDict2)
+
 
         
 
-        console.log(Object.keys(this.transDictArr[0])[0])
+        // console.log(Object.keys(this.transDictArr[0])[0])
+        // this.createTreeMainDs2()
 
   }
 
@@ -144,29 +150,32 @@ export class TransMockFromComponent implements OnInit {
   createTreeMainDs2() {
     var group = {};
     var counter = 0;
-    for (var parent in this.transDict) {
-      var formArr = [];
-      var parentObj = {};
-      parentObj["name"] = parent;
-      if (!this.hasChildren(parent)) {
-        formArr.push(new FormControl(parent));
-        parentObj["hasChild"] = false;
-      } else {
-        var children = [];
-        var childObj = {};
-        parentObj["hasChild"] = true;
-        for (var child in this.transDict[parent]) {
-          formArr.push(new FormControl(this.transDict[parent][child]));
-          childObj[this.transDict[parent][child]] = this.transDict[parent][
-            child
-          ];
-          children.push(this.transDict[parent][child]);
-        }
-        parentObj["children"] = children;
-        parentObj["childObj"] = childObj;
-      }
+    for (var parent in this.transDictArr) {
+      var childrenArr = Object.values(this.transDictArr[parent])[0];
+      console.log(Object.values(this.transDictArr[parent])[0])
+     var parentName = (Object.keys(this.transDictArr[parent])[0])
+       var formArr = [];
+       var parentObj = {};
+       parentObj["name"] = parentName;
+      // if (!this.hasChildren(parent)) {
+      //   formArr.push(new FormControl(parent));
+      //   parentObj["hasChild"] = false;
+      // } else {
+      //   var children = [];
+      //   var childObj = {};
+      //   parentObj["hasChild"] = true;
+      //   for (var child in this.transDict[parent]) {
+      //     formArr.push(new FormControl(this.transDict[parent][child]));
+      //     childObj[this.transDict[parent][child]] = this.transDict[parent][
+      //       child
+      //     ];
+      //     children.push(this.transDict[parent][child]);
+      //   }
+      //   parentObj["children"] = children;
+      //   parentObj["childObj"] = childObj;
+      // }
 
-      this.treeMainDs.push(parentObj);
+      // this.treeMainDs.push(parentObj);
     }
    
 
