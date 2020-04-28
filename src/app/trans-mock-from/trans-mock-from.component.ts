@@ -9,6 +9,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 })
 export class TransMockFromComponent implements OnInit {
   treeMainDs = [];
+  treeMainDs2 = [];
 
   form;
 
@@ -29,18 +30,18 @@ export class TransMockFromComponent implements OnInit {
     
     this.createTreeMainDs();
     this.fillFormWithTreeDsData();
-    console.log(this.form.controls)
+    // console.log(this.form.controls)
 
     // this.getFormArray("anqnlc1wnigreretData")
     var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
-    console.log(arr.value)
+    // console.log(arr.value)
     // for(var item in arr.value[0]){
     //   console.log(item)
     // }
 
 
 
-
+this.createTreeMainDs2();
 
 
 
@@ -112,7 +113,36 @@ export class TransMockFromComponent implements OnInit {
    
 
   }
+  createTreeMainDs2() {
+    var group = {};
+    var counter = 0;
+    for (var parent in this.transDict) {
+      var formArr = [];
+      var parentObj = {};
+      parentObj["name"] = parent;
+      if (!this.hasChildren(parent)) {
+        formArr.push(parent);
+        parentObj["hasChild"] = false;
+      } else {
+        var childObj = {};
+        parentObj["hasChild"] = true;
+        for (var child in this.transDict[parent]) {
+          formArr.push(this.transDict[parent][child]);
+          childObj[this.transDict[parent][child]] = this.transDict[parent][
+            child
+          ];
+          // children.push(this.transDict[parent][child]);
+        }
+        parentObj["childObj"] = childObj;
+      }
 
+      this.treeMainDs2.push(parentObj);
+    }
+
+    console.log(this.treeMainDs2)
+   
+
+  }
 
   createFormTemplate() {
     var templateFormobj = {};
