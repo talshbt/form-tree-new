@@ -185,7 +185,7 @@ export class TransMockFromComponent implements OnInit {
       templateFormobj[parent] = new FormArray([]);
     }
     this.form2 = new FormGroup(templateFormobj);
-    console.log(this.form2)
+    // console.log(this.form2)
 
     
   }
@@ -195,7 +195,10 @@ export class TransMockFromComponent implements OnInit {
     // console.log(this.transDict2)
 
     for (var parent in this.transDict2) {
-      / console.log(parent)
+      //  console.log(parent)
+      //  console.log(this.transDict[parent].length)
+
+       var controlObj = this.createControlObj2(parent)
 
       }
 
@@ -238,7 +241,28 @@ createControlObj(parent){
 
     return controlObj;
 }
+createControlObj2(parent){
+  var controlObj = {};
+      if (!this.hasChildren(parent)) {
+        controlObj[parent] = parent
+      } else {
 
+        for (var childObj in this.transDict2[parent]) {
+                   console.log(this.transDict2[parent][childObj])
+                    // parentObj["childObj"] = childObj
+                 }
+        // var children2 = this.treeMainDs[parent]["childObj"];
+
+
+        //  for (var child in children2) {
+        //      controlObj[child] = child;
+
+        // }
+        
+      }
+
+    return controlObj;
+}
 addControlToFormControl(controlObj){
   let formGroup: any = {};
 
