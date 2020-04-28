@@ -9,7 +9,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 })
 export class TransMockFromComponent implements OnInit {
   treeMainDs = [];
-  treeMainDs2 = [];
+  transDictArr = [];
   treeMainDsHelper2 = [];
   form;
 
@@ -128,7 +128,7 @@ export class TransMockFromComponent implements OnInit {
             values.push(childObj)
           }
           parentObj[key] = values;
-          this.treeMainDs2.push(parentObj)
+          this.transDictArr.push(parentObj)
 
           
         }
@@ -136,7 +136,7 @@ export class TransMockFromComponent implements OnInit {
 
         
 
-        console.log(Object.keys(this.treeMainDs2[0])[0])
+        console.log(Object.keys(this.transDictArr[0])[0])
 
   }
 
