@@ -74,9 +74,7 @@ export class TransMockFromComponent implements OnInit {
           childObj[this.transDict[parent][child]] = this.transDict[parent][
             child
           ];
-          // children.push(this.transDict[parent][child]);
         }
-        // parentObj["children"] = children;
         parentObj["childObj"] = childObj;
       }
 
