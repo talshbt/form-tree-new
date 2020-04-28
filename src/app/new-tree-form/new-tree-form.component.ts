@@ -49,8 +49,7 @@ export class NewTreeFormComponent implements OnInit {
   }
 
     createTreeMainDs() {
-    var group = {};
-    var counter = 0;
+    // var group = {};
     for (var parent in this.transDict) {
       var parentObj = {};
       parentObj["name"] = parent;
