@@ -109,8 +109,8 @@ export class TransMockFromComponent implements OnInit {
 
     }
 
-    console.log(this.transDictArr)
-    console.log(this.treeMainDs)
+    // console.log(this.transDictArr)
+    // console.log(this.treeMainDs)
 
    
 
@@ -138,7 +138,7 @@ export class TransMockFromComponent implements OnInit {
           
         }
 
-        console.log(this.transDict2)
+        // console.log(this.transDict2)
 
 
         
@@ -208,9 +208,6 @@ export class TransMockFromComponent implements OnInit {
   }
 
 
-  fillForm2(){
-    console.log(this.transDict2)
-  }
 
 
  onSubmit() {
@@ -233,6 +230,7 @@ createControlObj(parent){
 
 
          for (var child in children2) {
+          //  console.log(child)
              controlObj[child] = child;
 
         }
@@ -247,8 +245,10 @@ createControlObj2(parent){
         controlObj[parent] = parent
       } else {
 
+        // console.log(this.transDict2[parent])
+
         for (var childObj in this.transDict2[parent]) {
-                   console.log(this.transDict2[parent][childObj])
+                  //  console.log(this.transDict2[parent][childObj])
                     // parentObj["childObj"] = childObj
                  }
         // var children2 = this.treeMainDs[parent]["childObj"];
