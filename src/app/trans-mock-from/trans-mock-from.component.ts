@@ -117,7 +117,6 @@ export class TransMockFromComponent implements OnInit {
 
 
   createNewObjectToForm(){
-        var treeArrDs = []
         for (var parent in this.transDict) {
           var parentObj = {}
           var key = parent;
@@ -127,12 +126,12 @@ export class TransMockFromComponent implements OnInit {
             childObj[this.transDict[parent][child]] = ""
             values.push(childObj)
           }
-          treeArrDs[key] = values;
+          this.treeMainDs2[key] = values;
 
           
         }
 
-        console.log()
+        console.log(this.treeMainDs2)
 
   }
   
