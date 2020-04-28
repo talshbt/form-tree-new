@@ -57,16 +57,12 @@ export class NewTreeFormComponent implements OnInit {
       if (!this.hasChildren(parent)) {
         parentObj["hasChild"] = false;
       } else {
-        var children = [];
         var childObj = {};
         parentObj["hasChild"] = true;
         for (var child in this.transDict[parent]) {
-          childObj[this.transDict[parent][child]] = this.transDict[parent][
-            child
-          ];
-          children.push(this.transDict[parent][child]);
+          
+          childObj[this.transDict[parent][child]] = this.transDict[parent][child];
         }
-        parentObj["children"] = children;
         parentObj["childObj"] = childObj;
       }
 
@@ -79,6 +75,7 @@ export class NewTreeFormComponent implements OnInit {
 
   ngOnInit() {
     this.createTransDict2();
+    this.createTreeMainDs();
   }
 
    hasChildren(parent) {
