@@ -49,7 +49,7 @@ export class TransMockFromComponent implements OnInit {
     // this.getFormArray("anqnlc1wnigreretData")
     var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
   //  this.printTreeDs2()
-   this.createNewObjectToForm()
+   this.createTransDict2()
 
   }
 
@@ -116,11 +116,12 @@ export class TransMockFromComponent implements OnInit {
   }
 
 
-  createNewObjectToForm(){
+  createTransDict2(){
         for (var parent in this.transDict) {
           var parentObj = {}
           var key = parent;
           var values = [];
+         
           for(var child in this.transDict[parent]){
             var childObj = {}
             childObj[this.transDict[parent][child]] = ""
@@ -138,6 +139,39 @@ export class TransMockFromComponent implements OnInit {
         console.log(Object.keys(this.treeMainDs2[0])[0])
 
   }
+
+
+  createTreeMainDs2() {
+    var group = {};
+    var counter = 0;
+    for (var parent in this.transDict) {
+      var formArr = [];
+      var parentObj = {};
+      parentObj["name"] = parent;
+      if (!this.hasChildren(parent)) {
+        formArr.push(new FormControl(parent));
+        parentObj["hasChild"] = false;
+      } else {
+        var children = [];
+        var childObj = {};
+        parentObj["hasChild"] = true;
+        for (var child in this.transDict[parent]) {
+          formArr.push(new FormControl(this.transDict[parent][child]));
+          childObj[this.transDict[parent][child]] = this.transDict[parent][
+            child
+          ];
+          children.push(this.transDict[parent][child]);
+        }
+        parentObj["children"] = children;
+        parentObj["childObj"] = childObj;
+      }
+
+      this.treeMainDs.push(parentObj);
+    }
+   
+
+  }
+
   
 
   createFormTemplate() {
