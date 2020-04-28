@@ -100,11 +100,18 @@ export class TransMockFromComponent implements OnInit {
          parentObj["hasChild"] = true;
                  for (var childObj in this.transDict2[parent]) {
                    console.log(this.transDict2[parent][childObj])
-                   
+                    parentObj["childObj"] = childObj
                  }
+                 this.transDictArr.push(parentObj);
 
       }
+
+            
+
     }
+
+    console.log(this.transDictArr)
+    console.log(this.treeMainDs)
 
    
 
@@ -164,7 +171,7 @@ export class TransMockFromComponent implements OnInit {
         
 
         // console.log(Object.keys(this.transDictArr[0])[0])
-         this.createTreeMainDs2()
+        //  this.createTreeMainDs2()
 
   }
 
@@ -199,6 +206,26 @@ export class TransMockFromComponent implements OnInit {
 
 
   }
+
+
+    fillFormWithTreeDsData2() {
+    this.createFormTemplate();
+    for (var parent in this.treeMainDs) {
+      // console.log(parent)
+      var controlObj = this.createControlObj(parent)
+
+      let formGroup = this.addControlToFormControl(controlObj)
+ 
+      var formArrayOfControls = this.getFormArray(parent)
+
+      formArrayOfControls.push(new FormGroup(formGroup));
+    }
+
+   
+
+
+  }
+
 
  onSubmit() {
     // console.log(this.cities.value); // ['SF', 'NY']
