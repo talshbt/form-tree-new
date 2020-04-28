@@ -250,17 +250,18 @@ createControlObj(parent){
         // console.log("children2:")
 
         // console.log(children2)
-           console.log("child:")
+          //  console.log("child:")
 
          for (var child in children2) {
-          console.log(child);
+             controlObj[child] = child;
+          // console.log(child);
 
         }
-                             console.log("end child:")
+                            //  console.log("end child:")
 
-        for (var child in children) {
-          controlObj[children[child]] = children[child];
-        }
+        // for (var child in children) {
+        //   controlObj[children[child]] = children[child];
+        // }
       }
 
     return controlObj;
