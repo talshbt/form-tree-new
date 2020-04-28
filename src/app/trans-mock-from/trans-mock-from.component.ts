@@ -10,7 +10,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 export class TransMockFromComponent implements OnInit {
   treeMainDs = [];
   treeMainDs2 = [];
-
+  treeMainDsHelper2 = [];
   form;
 
   constructor() {}
@@ -22,6 +22,20 @@ export class TransMockFromComponent implements OnInit {
     blockReceive001Data: [],
     anqnlc11nigreretData: ["sugNigreretInt"],
     anqtlc1wnigreretData: ["sugNigreretInt"],
+    trqra001nigreretData: []
+  };
+
+
+    transDict2 = {
+    blockSend001Data: [],
+    anqnlc1wnigreretData: 
+    [
+      {"sugNigreretInt":""}, 
+      {"sugPirteyMahaduraInt": ""}
+    ],
+    blockReceive001Data: [],
+    anqnlc11nigreretData: [{"sugNigreretInt":""}],
+    anqtlc1wnigreretData: [{"sugNigreretInt":""}],
     trqra001nigreretData: []
   };
 
@@ -116,13 +130,34 @@ this.createTreeMainDs2();
 
 
   printTreeDs2(){
+    var group = {};
+    var formArr = [];
+    var parentObj = {};
     for (var parent in this.treeMainDs2) {
       console.log(this.treeMainDs2[parent]["name"])
+      console.log(this.treeMainDs2[parent]['childObj'])
+
+      //  parentObj["name"] = this.treeMainDs2[parent]["name"];
+      //  if (!this.treeMainDs2[parent]["hasChild"]) {
+      //   formArr.push(this.treeMainDs2[parent]);
+      //   parentObj["hasChild"] = false;
+      // } else {
+      //   var childObj = {};
+      //   parentObj["hasChild"] = true;
+      //     for (var child in this.treeMainDs2[chil]) {
+      //     formArr.push(this.transDict[parent][child]);
+      //     childObj[this.transDict[parent][child]] = this.transDict[parent][
+      //       child
+      //     ];
+      //     // children.push(this.transDict[parent][child]);
+      //   }
+
+      // }
+      // console.log(this.treeMainDs2[parent]["name"])
     }
   }
   createTreeMainDs2() {
     var group = {};
-    var counter = 0;
     for (var parent in this.transDict) {
       var formArr = [];
       var parentObj = {};
@@ -164,6 +199,7 @@ this.createTreeMainDs2();
   fillFormWithTreeDsData() {
     this.createFormTemplate();
     for (var parent in this.treeMainDs) {
+      // console.log(parent)
       var controlObj = this.createControlObj(parent)
 
       let formGroup = this.addControlToFormControl(controlObj)
