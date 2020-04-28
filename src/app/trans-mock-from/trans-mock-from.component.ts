@@ -243,7 +243,6 @@ createControlObj(parent){
           "name"
         ];
       } else {
-        var children = this.treeMainDs[parent]["children"];
         var children2 = this.treeMainDs[parent]["childObj"];
 
 
