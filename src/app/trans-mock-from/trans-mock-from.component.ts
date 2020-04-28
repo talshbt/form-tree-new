@@ -46,9 +46,8 @@ export class TransMockFromComponent implements OnInit {
     
     this.createTreeMainDs();
     this.fillFormWithTreeDsData();
-    // console.log(this.form.controls)
+    this.fillFormWithTreeDsData2();
 
-    // this.getFormArray("anqnlc1wnigreretData")
     var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
   //  this.printTreeDs2()
    this.createTransDict2()
@@ -178,19 +177,27 @@ export class TransMockFromComponent implements OnInit {
 
 
   }
+ createFormTemplate2() {
+    var templateFormobj = {};
+    for (var parent in this.transDict2) {
+      templateFormobj[parent] = new FormArray([]);
+    }
+    this.form = new FormGroup(templateFormobj);
 
+    
+  }
 
     fillFormWithTreeDsData2() {
-    this.createFormTemplate();
-    for (var parent in this.treeMainDs) {
+    // this.createFormTemplate();
+    for (var parent in this.transDict2) {
       // console.log(parent)
-      var controlObj = this.createControlObj(parent)
+      // var controlObj = this.createControlObj(parent)
 
-      let formGroup = this.addControlToFormControl(controlObj)
+      // let formGroup = this.addControlToFormControl(controlObj)
  
-      var formArrayOfControls = this.getFormArray(parent)
+      // var formArrayOfControls = this.getFormArray(parent)
 
-      formArrayOfControls.push(new FormGroup(formGroup));
+      // formArrayOfControls.push(new FormGroup(formGroup));
     }
 
    
