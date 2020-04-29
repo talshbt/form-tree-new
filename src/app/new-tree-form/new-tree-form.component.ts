@@ -31,6 +31,16 @@ export class NewTreeFormComponent implements OnInit {
 
     var arr = this.form2.get("anqnlc1wnigreretData") as FormArray;
 
+
+       for (var parent in this.transDict2) {
+         console.log(parent)
+         for (var childObj in this.transDict2[parent]){
+           console.log(this.transDict2[parent][childObj])
+         }
+
+       }
+
+
   }
 
 
