@@ -1,26 +1,6 @@
 
 
 
-<!-- <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
-  {{parent.key}} : {{parent.value.length}}
-</div> -->
- <!-- <form [formGroup]="form2" (ngSubmit)="onSubmit()">
-<div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
-  <div [formArrayName]="parent.key" *ngFor="let item of form2.get(parent.key).controls; let i = index;">
-      <div [formGroupName]="i">
-         <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let k = index;">   
-           <input [formControlName]="item.key" [placeholder]="exp.key">	
-         </div>
-
-           <div *ngIf = "parent.value.length === 0">
-    <input  [formControlName]="parent.key">
-    </div>
-      </div>
-     </div>
-   	</div>
-     
-
- </form> -->
 
 
 
@@ -52,11 +32,3 @@
 
 <br><br>
 
-	<!-- <div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
-   {{j}} :{{parent.key}}
-    <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let i = index;">   	
-      {{item.value}}
-
-   
-  </div>
-	</div>  -->
