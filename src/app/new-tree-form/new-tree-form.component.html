@@ -7,6 +7,8 @@
  <form [formGroup]="form2" (ngSubmit)="onSubmit()">
 <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
   <div [formArrayName]="parent.key" *ngFor="let item of form2.get(parent.key).controls; let i = index;">
+      <div [formGroupName]="i">
+      </div>
      </div>
    	</div>
      
