@@ -85,7 +85,6 @@ export class NewTreeFormComponent implements OnInit {
 
   createControlObj2(parent) {
     var controlObj = {};
-    console.log(this.hasChildren(parent))
     if (!this.hasChildren(parent)) {
       controlObj[parent] = parent;
     } else {
