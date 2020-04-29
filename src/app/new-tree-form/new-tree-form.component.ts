@@ -50,10 +50,10 @@ export class NewTreeFormComponent implements OnInit {
       }
   
       this.transDict2[key] = values;
-      this.dsHelper[key] = this.hasChildren(parent);
+      // this.dsHelper[key] = this.hasChildren(parent);
       
     }
-  console.log(this.dsHelper)
+  // console.log(this.dsHelper)
   }
 
 
