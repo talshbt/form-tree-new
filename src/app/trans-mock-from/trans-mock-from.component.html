@@ -46,9 +46,10 @@
 <br><br>
 
 	<div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
-   {{j}} :{{parent.key}}
+   {{j}} :{{parent.key.length}}
     <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let i = index;">   	
       {{item.value}}
+      {{ form2.get(parent.key).length}}
 
    
   </div>
