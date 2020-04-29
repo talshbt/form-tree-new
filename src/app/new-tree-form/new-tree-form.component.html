@@ -1,30 +1,47 @@
-	<!-- <div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
-   {{j}} :{{parent.key}}
-
-
-
-    <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let i = index;">   	
-      {{item.value}}
-
-   
-  </div>
-	</div>
-<br><br>
-
-	<div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
-   {{j}} :{{parent.key}}
-
-
-    <div *ngFor="let item of form2.get(parent.key).controls let i = index;">   	
-      {{item.value}}
-
-   
-  </div>
-	</div>
-<br><br> -->
 
 
 
 <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
   {{parent.key}} : {{parent.value.length}}
 </div>
+ <form [formGroup]="form2" (ngSubmit)="onSubmit()">
+ </form>
+
+
+
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div *ngFor="let parent of treeMainDs; let j = index">
+   
+<div [formArrayName]="parent.name"
+  *ngFor="let item of form.get(parent.name).controls; let i = index;">
+  <div [formGroupName]="i">
+    <div *ngFor="let exp of parent.childObj | keyvalue; ">
+    <input [formControlName]="exp.key" [placeholder]="exp.key">
+    </div>
+
+     <div *ngIf = "!parent.hasChild">
+    <input  [formControlName]="parent.name">
+    </div>
+   
+  </div>
+
+
+</div>
+	</div>
+
+        <button>Submit</button>
+
+</form>
+
+
+
+<br><br>
+
+	<div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
+   {{j}} :{{parent.key}}
+    <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let i = index;">   	
+      {{item.value}}
+
+   
+  </div>
+	</div> -->
