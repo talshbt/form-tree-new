@@ -27,11 +27,7 @@
 <br><br>
 
 
-<div *ngFor="let parent of dsHelper |keyvalue ; let j = index">
-  {{parent.key}} : {{parent.value}}
-</div>
 
-
-<div *ngFor="let parent of transDict |keyvalue ; let j = index">
+<div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
   {{parent.key}} : {{parent.value.length}}
 </div>
