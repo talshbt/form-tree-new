@@ -119,7 +119,7 @@ export class NewTreeFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form2.value); // { cities: ['SF', 'NY'] }
+    console.log(this.form2.value); 
   }
 
   hasChildren(parent) {
