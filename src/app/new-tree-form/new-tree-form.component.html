@@ -32,11 +32,11 @@
 <br><br>
 <form [formGroup]="form2" (ngSubmit)="onSubmit()">
 <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
-    {{parent.key}}
+   parent : {{parent.key}}
          <div *ngFor="let child of parent.value | keyvalue;" >
                     <div *ngFor="let ch of child.value | keyvalue;" >
 
-                      {{ch.key}}
+                      child :{{ch.key}}
                     </div>
          </div>
 
