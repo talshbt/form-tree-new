@@ -72,7 +72,6 @@ export class NewTreeFormComponent implements OnInit {
   fillFormWithTreeDsData2() {
     this.createFormTemplate2();
     for (var parent in this.transDict2) {
-      console.log(this.transDict2[parent].length)
       var controlObj = this.createControlObj2(parent);
 
       let formGroup = this.addControlToFormControl2(controlObj);
