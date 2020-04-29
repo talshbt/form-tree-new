@@ -10,7 +10,7 @@ let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 export class TransMockFromComponent implements OnInit {
   treeMainDs = [];
   transDictArr = [];
-    transDict2 = {};
+  transDict2 = {};
 
   treeMainDsHelper2 = [];
   form;
@@ -18,7 +18,6 @@ export class TransMockFromComponent implements OnInit {
 
   constructor() {}
 
- 
   transDict = {
     blockSend001Data: [],
     anqnlc1wnigreretData: ["sugNigreretInt", "sugPirteyMahaduraInt"],
@@ -28,12 +27,11 @@ export class TransMockFromComponent implements OnInit {
     trqra001nigreretData: []
   };
 
-
   //   transDict2 = {
   //   blockSend001Data: [],
-  //   anqnlc1wnigreretData: 
+  //   anqnlc1wnigreretData:
   //   [
-  //     {sugNigreretInt:""}, 
+  //     {sugNigreretInt:""},
   //     {sugPirteyMahaduraInt: ""}
   //   ],
   //   blockReceive001Data: [],
@@ -42,26 +40,17 @@ export class TransMockFromComponent implements OnInit {
   //   trqra001nigreretData: []
   // };
 
-
   ngOnInit() {
-    
     this.createTreeMainDs();
     this.fillFormWithTreeDsData();
 
-        this.createTransDict2();
-
+    this.createTransDict2();
     this.fillFormWithTreeDsData2();
 
-    var arr =this.form.get("anqnlc1wnigreretData") as FormArray;
-  //  this.printTreeDs2()
-  //  this.createTransDict2()
-
-
-
+    var arr = this.form.get("anqnlc1wnigreretData") as FormArray;
+    //  this.printTreeDs2()
+    //  this.createTransDict2()
   }
-
-
-
 
   createTreeMainDs() {
     var group = {};
@@ -85,76 +74,52 @@ export class TransMockFromComponent implements OnInit {
 
       this.treeMainDs.push(parentObj);
     }
-   
-
   }
 
-
-    createTreeMainDs2() {
+  createTreeMainDs2() {
     var group = {};
     for (var parent in this.transDict2) {
       var formArr = [];
       var parentObj = {};
       parentObj["name"] = parent;
-       if (!this.hasChildren(parent)) {
+      if (!this.hasChildren(parent)) {
         formArr.push(new FormControl(parent));
         parentObj["hasChild"] = false;
       } else {
-         parentObj["hasChild"] = true;
-                 for (var childObj in this.transDict2[parent]) {
-                   console.log(this.transDict2[parent][childObj])
-                    parentObj["childObj"] = childObj
-                 }
-                 this.transDictArr.push(parentObj);
-
+        parentObj["hasChild"] = true;
+        for (var childObj in this.transDict2[parent]) {
+          console.log(this.transDict2[parent][childObj]);
+          parentObj["childObj"] = childObj;
+        }
+        this.transDictArr.push(parentObj);
       }
-
-            
-
     }
 
     // console.log(this.transDictArr)
     // console.log(this.treeMainDs)
-
-   
-
   }
 
+  createTransDict2() {
+    for (var parent in this.transDict) {
+      var parentObj = {};
+      var key = parent;
+      var values = [];
 
+      for (var child in this.transDict[parent]) {
+        var childObj = {};
+        childObj[this.transDict[parent][child]] = "";
+        values.push(childObj);
+      }
+      parentObj[key] = values;
+      this.transDictArr.push(parentObj);
+      this.transDict2[key] = values;
+    }
 
+    // console.log(this.transDict2)
 
-
-  createTransDict2(){
-        for (var parent in this.transDict) {
-          var parentObj = {}
-          var key = parent;
-          var values = [];
-         
-          for(var child in this.transDict[parent]){
-            var childObj = {}
-            childObj[this.transDict[parent][child]] = ""
-            values.push(childObj)
-          }
-          parentObj[key] = values;
-          this.transDictArr.push(parentObj)
-          this.transDict2[key] = values;
-
-          
-        }
-
-        // console.log(this.transDict2)
-
-
-        
-
-        // console.log(Object.keys(this.transDictArr[0])[0])
-        //  this.createTreeMainDs2()
-
+    // console.log(Object.keys(this.transDictArr[0])[0])
+    //  this.createTreeMainDs2()
   }
-
-
-
-  
 
   createFormTemplate() {
     var templateFormobj = {};
@@ -162,161 +127,117 @@ export class TransMockFromComponent implements OnInit {
       templateFormobj[parent.name] = new FormArray([]);
     }
     this.form = new FormGroup(templateFormobj);
-
-    
   }
 
-  fillFormWithTreeDsData() {
-    this.createFormTemplate();
-          // console.log("----------------------1--------------")
-
-    for (var parent in this.treeMainDs) {
-      // console.log(parent)
-      var controlObj = this.createControlObj(parent)
-
-      let formGroup = this.addControlToFormControl(controlObj)
- 
-      var formArrayOfControls = this.getFormArray(parent)
-
-      formArrayOfControls.push(new FormGroup(formGroup));
-    }
-      console.log("form")
-      console.log(this.form)
-
-
-
-  }
-
-    fillFormWithTreeDsData2() {
-     this.createFormTemplate2();
-     for (var parent in this.transDict2) {
-      var controlObj = this.createControlObj2(parent)
-      let formGroup = this.addControlToFormControl2(controlObj)
-      var formArrayOfControls = this.getFormArray2(parent)
-      formArrayOfControls.push(new FormGroup(formGroup));
-
-      }
-      console.log("form2")
-
-      console.log(this.form2)
-
-   
-
-
-  }
-
-
-  createControlObj(parent){
-  var controlObj = {};
-      if (!this.treeMainDs[parent]["hasChild"]) {
-        controlObj[this.treeMainDs[parent]["name"]] = this.treeMainDs[parent][
-          "name"
-        ];
-      } else {
-        var children2 = this.treeMainDs[parent]["childObj"];
-
-         for (var child in children2) {
-             controlObj[child] = child;
-
-        }
-        
-      }
-    // console.log(controlObj)
-    return controlObj;
-}
-createControlObj2(parent){
-  var controlObj = {};
-      if (!this.hasChildren(parent)) {
-        controlObj[parent] = parent
-      } else {
-
-        // console.log(this.transDict2[parent])
-
-        for (var childObj in this.transDict2[parent]) {
-      
-          var child = Object.keys(this.transDict2[parent][childObj])[0];
-
-          controlObj[child] = child;
-
-
-        
-      }
-
-    }
-    return controlObj;
-}
-
- createFormTemplate2() {
+  createFormTemplate2() {
     var templateFormobj = {};
     for (var parent in this.transDict2) {
       templateFormobj[parent] = new FormArray([]);
     }
     this.form2 = new FormGroup(templateFormobj);
-    // console.log(this.form2)
-
-    
+    console.log(this.form2);
   }
 
+  fillFormWithTreeDsData() {
+    this.createFormTemplate();
 
+    for (var parent in this.treeMainDs) {
+      var controlObj = this.createControlObj(parent);
 
+      let formGroup = this.addControlToFormControl(controlObj);
 
+      var formArrayOfControls = this.getFormArray(parent);
 
+      formArrayOfControls.push(new FormGroup(formGroup));
+    }
+  }
 
- onSubmit() {
+  fillFormWithTreeDsData2() {
+    this.createFormTemplate2();
+    for (var parent in this.transDict2) {
+      var controlObj = this.createControlObj2(parent);
+
+      let formGroup = this.addControlToFormControl2(controlObj);
+
+      var formArrayOfControls = this.getFormArray2(parent);
+
+      formArrayOfControls.push(new FormGroup(formGroup));
+    }
+  }
+
+  createControlObj(parent) {
+    var controlObj = {};
+    if (!this.treeMainDs[parent]["hasChild"]) {
+      controlObj[this.treeMainDs[parent]["name"]] = this.treeMainDs[parent][
+        "name"
+      ];
+    } else {
+      var children2 = this.treeMainDs[parent]["childObj"];
+
+      for (var child in children2) {
+        controlObj[child] = child;
+      }
+    }
+    // console.log(controlObj)
+    return controlObj;
+  }
+  createControlObj2(parent) {
+    var controlObj = {};
+    if (!this.hasChildren(parent)) {
+      controlObj[parent] = parent;
+    } else {
+      for (var childObj in this.transDict2[parent]) {
+        var child = Object.keys(this.transDict2[parent][childObj])[0];
+
+        controlObj[child] = child;
+      }
+    }
+    return controlObj;
+  }
+
+  addControlToFormControl(controlObj) {
+    let formGroup: any = {};
+
+    for (let control in controlObj) {
+      formGroup[control] = new FormControl(controlObj[control]);
+    }
+
+    return formGroup;
+  }
+
+  addControlToFormControl2(controlObj) {
+    let formGroup: any = {};
+
+    for (let control in controlObj) {
+      formGroup[control] = new FormControl(controlObj[control]);
+    }
+
+    return formGroup;
+  }
+
+  getFormArray(parent) {
+    var controlName = this.treeMainDs[parent]["name"];
+    // console.log(controlName)
+    return this.form.get(controlName) as FormArray;
+  }
+
+  getFormArray2(parent) {
+    // console.log(parent)
+    var controlName = parent;
+    //  console.log(controlName)
+    return this.form2.get(controlName) as FormArray;
+  }
+
+  onSubmit() {
     // console.log(this.cities.value); // ['SF', 'NY']
     console.log(this.form.value); // { cities: ['SF', 'NY'] }
     // console.log(this.cities);
   }
 
-
-
-
-
-addControlToFormControl(controlObj){
-  let formGroup: any = {};
-
-
-      for (let control in controlObj) {
-        formGroup[control] = new FormControl(controlObj[control]);
-      }
-
-
-      return formGroup;
-}
-
-addControlToFormControl2(controlObj){
-  let formGroup: any = {};
-
-
-      for (let control in controlObj) {
-        formGroup[control] = new FormControl(controlObj[control]);
-      }
-
-
-      return formGroup;
-}
-
   hasChildren(parent) {
     return this.transDict[parent].length > 0;
   }
-  getFormArray(parent){
-      var controlName = this.treeMainDs[parent]["name"];
-      // console.log(controlName)
-      return this.form.get(controlName) as FormArray;
-  }
-
-    getFormArray2(parent){
-      // console.log(parent)
-      var controlName = parent;
-      //  console.log(controlName)
-      return this.form.get(controlName) as FormArray;
-  }
-
 }
-
-
-
-
 
 //   printForm(){
 
