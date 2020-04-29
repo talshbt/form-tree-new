@@ -5,6 +5,9 @@
   {{parent.key}} : {{parent.value.length}}
 </div>
  <form [formGroup]="form2" (ngSubmit)="onSubmit()">
+<div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
+   	</div>
+
  </form>
 
 
