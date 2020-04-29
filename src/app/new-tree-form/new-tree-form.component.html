@@ -4,7 +4,7 @@
 
 
 
-<form [formGroup]="form2" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="form2" (ngSubmit)="onSubmit()">
 <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
    
 <div [formArrayName]="parent.key"
@@ -26,16 +26,20 @@
 
         <button>Submit</button>
 
-</form>
+</form> -->
 
 
 <br><br>
 <form [formGroup]="form2" (ngSubmit)="onSubmit()">
 <div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
-   <div *ngFor="let child of parent.value |keyvalue ; let i = index">
-   {{child.key}}
-  
-	</div>
+    {{parent.key}}
+         <div *ngFor="let child of parent.value | keyvalue;" >
+                    <div *ngFor="let ch of child.value | keyvalue;" >
+
+                      {{ch.key}}
+                    </div>
+         </div>
+
 
 
 	</div>
@@ -47,3 +51,10 @@
 
 <br><br>
 
+ <!-- for (var parent in this.transDict2) {
+         console.log(parent)
+         for (var childObj in this.transDict2[parent]){
+           console.log(this.transDict2[parent][childObj])
+         }
+
+       } -->
