@@ -30,8 +30,8 @@
 <div [formArrayName]="parent.key"
   *ngFor="let item of form2.get(parent.key).controls; let i = index;">
   <div [formGroupName]="i">
-    <div *ngFor="let exp of parent.childObj | keyvalue; ">
-    <input [formControlName]="exp.key" [placeholder]="exp.key">
+  <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let k = index;">   
+    <input [formControlName]="item.key" [placeholder]="item.key">
     </div>
 
      <div *ngIf = "parent.value.length === 0">
