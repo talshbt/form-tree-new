@@ -62,6 +62,13 @@
 <div [formArrayName]="parent.key"
   *ngFor="let item of form2.get(parent.key).controls; let i = index;">
   <div [formGroupName]="i">
+             <div *ngFor="let child of parent.value | keyvalue;" >
+               <div *ngFor="let ch of child.value | keyvalue;" >
+
+                          <input [formControlName]="ch.key" [placeholder]="ch.key">
+
+                    </div>
+             </div>
     <!-- <div *ngFor="let exp of parent.childObj | keyvalue; ">
     <input [formControlName]="exp.key" [placeholder]="exp.key">
     </div> -->
