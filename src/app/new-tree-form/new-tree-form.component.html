@@ -1,8 +1,27 @@
 	<div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
    {{j}} :{{parent.key}}
+
+   <div *ngIf = "form2.get(parent.key).value[0].length>0" >
+     true
+   </div>
+
+    {{ (form2.get(parent.key).value[0]).length}}
     <div *ngFor="let item of form2.get(parent.key).value[0]|keyvalue; let i = index;">   	
       {{item.value}}
 
    
   </div>
 	</div>
+<br><br>
+
+	<div *ngFor="let parent of form2.controls |keyvalue ; let j = index">
+   {{j}} :{{parent.key}}
+
+
+    <div *ngFor="let item of form2.get(parent.key).controls let i = index;">   	
+      {{item.value}}
+
+   
+  </div>
+	</div>
+<br><br>

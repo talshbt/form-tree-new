@@ -8,7 +8,7 @@ import { FormControl, FormGroup, FormArray, Validators } from "@angular/forms";
 export class NewTreeFormComponent implements OnInit {
 ;
   transDict2 = {};
-
+  dsHelper = {}
   form2;
 
   constructor() {}
@@ -41,16 +41,19 @@ export class NewTreeFormComponent implements OnInit {
       var parentObj = {};
       var key = parent;
       var values = [];
+      console.log(this.hasChildren(parent))
 
       for (var child in this.transDict[parent]) {
         var childObj = {};
         childObj[this.transDict[parent][child]] = "";
         values.push(childObj);
       }
-      parentObj[key] = values;
+  
       this.transDict2[key] = values;
+      this.dsHelper[key] = this.hasChildren(parent);
+      
     }
-
+  console.log(this.dsHelper)
   }
 
 
@@ -68,6 +71,7 @@ export class NewTreeFormComponent implements OnInit {
   fillFormWithTreeDsData2() {
     this.createFormTemplate2();
     for (var parent in this.transDict2) {
+      console.log(this.transDict2[parent].length)
       var controlObj = this.createControlObj2(parent);
 
       let formGroup = this.addControlToFormControl2(controlObj);
