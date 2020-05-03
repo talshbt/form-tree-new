@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trans-tree-form-current.component.css']
 })
 export class TransTreeFormCurrentComponent implements OnInit {
-transTree = {
+
+
+form2;
+transDict2 = {
   "blockSend001Data": [
     {
       "blockSend001Data": ""
