@@ -66,11 +66,12 @@ transDict2 =
    createControlObj2(parent) {
     var controlObj = {};
     if (!this.hasChildren(parent)) {
-      controlObj[parent] = parent;
+      controlObj[parent] = "";
     } else {
       for (var childObj in this.transDict2[parent]) {
         var key = Object.keys(this.transDict2[parent][childObj])[0];
           var val = Object.values(this.transDict2[parent][childObj])[0];
+          console.log(val)
 
         controlObj[key] = val;
       }
