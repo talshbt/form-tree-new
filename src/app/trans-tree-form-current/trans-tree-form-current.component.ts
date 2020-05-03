@@ -30,26 +30,7 @@ transDict2 = {
       "trqra002nigreretData": ""
     }
   ],
-  "trqra004nigreretData": [
-    {
-      "trqra004nigreretData": ""
-    }
-  ],
-  "trqra005nigreretData": [
-    {
-      "trqra005nigreretData": ""
-    }
-  ],
-  "trqhd000nigreretData": [
-    {
-      "trqhd000nigreretData": ""
-    }
-  ],
-  "trqhd002nigreretData": [
-    {
-      "trqhd002nigreretData": ""
-    }
-  ],
+  
   "anc1OrderData": [
     {
       "anc1OrderData": ""
