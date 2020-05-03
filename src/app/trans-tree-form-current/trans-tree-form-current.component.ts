@@ -14,7 +14,7 @@ transDict2 =
   "blockSend001Data": [],
   "anqnlc1wnigreretData": [
     {
-      "sugNigreretInt": ""
+      "sugNigreretInt": "blablabla"
     },
     {
       "sugPirteyMahaduraInt": ""
