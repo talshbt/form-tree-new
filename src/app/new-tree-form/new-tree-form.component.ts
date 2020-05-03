@@ -29,10 +29,10 @@ export class NewTreeFormComponent implements OnInit {
     this.createTransDict2();
     this.fillFormWithTreeDsData2();
 
-    var arr = this.form2.get("anqnlc1wnigreretData") as FormArray;
+    // var arr = this.form2.get("anqnlc1wnigreretData") as FormArray;
 
-    // console.log(this.transDict2)
-    console.log(this.transDict2['anqnlc1wnigreretData'])
+    // // console.log(this.transDict2)
+    // console.log(this.transDict2['anqnlc1wnigreretData'].length)
 
 
      
