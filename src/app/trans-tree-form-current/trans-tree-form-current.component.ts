@@ -69,9 +69,10 @@ transDict2 =
       controlObj[parent] = parent;
     } else {
       for (var childObj in this.transDict2[parent]) {
-        var child = Object.keys(this.transDict2[parent][childObj])[0];
+        var key = Object.keys(this.transDict2[parent][childObj])[0];
+          var val = Object.values(this.transDict2[parent][childObj])[0];
 
-        controlObj[child] = child;
+        controlObj[key] = val;
       }
     }
     return controlObj;
