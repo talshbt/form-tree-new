@@ -1,0 +1,32 @@
+
+
+<form [formGroup]="form2" (ngSubmit)="onSubmit()">
+<div *ngFor="let parent of transDict2 |keyvalue ; let j = index">
+   
+<div [formArrayName]="parent.key"
+  *ngFor="let item of form2.get(parent.key).controls; let i = index;">
+  <div [formGroupName]="i">
+             <div *ngFor="let child of parent.value | keyvalue;" >
+               <div *ngFor="let ch of child.value | keyvalue;" >
+
+                          <input [formControlName]="ch.key" [placeholder]="ch.key">
+
+                    </div>
+             </div>
+  
+
+     <div *ngIf = "parent.value.length === 0">
+    <input  [formControlName]="parent.key">
+    </div>
+   
+  </div>
+
+
+</div>
+	</div>
+
+        <button>Submit</button>
+
+</form>
+<pre>{{transDict2| json}}</pre>
+

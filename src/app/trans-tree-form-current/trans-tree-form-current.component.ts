@@ -9,33 +9,29 @@ export class TransTreeFormCurrentComponent implements OnInit {
 
 
 form2;
-transDict2 = {
-  "blockSend001Data": [
+transDict2 = 
+  {
+  "blockSend001Data": [],
+  "anqnlc1wnigreretData": [
     {
-      "blockSend001Data": ""
-    }
-  ],
- 
-  "anqnlc11nigreretData": [
-  
-    {
-      "fillerStr": ""
+      "sugNigreretInt": ""
     },
     {
-      "simanSofNigreretStr": ""
+      "sugPirteyMahaduraInt": ""
     }
   ],
-  "trqra002nigreretData": [
+  "blockReceive001Data": [],
+  "anqnlc11nigreretData": [
     {
-      "trqra002nigreretData": ""
+      "sugNigreretInt": ""
     }
   ],
-  
-  "anc1OrderData": [
+  "anqtlc1wnigreretData": [
     {
-      "anc1OrderData": ""
+      "sugNigreretInt": ""
     }
-  ]
+  ],
+  "trqra001nigreretData": []
 }
   constructor() { }
 
