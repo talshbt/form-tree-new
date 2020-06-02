@@ -1,0 +1,101 @@
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+  <button style="margin-top:5px; margin-bottom:5px;" type="button" class="btn btn-primary btn-sm" (click)="addNewCity()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Transaction
+  </button>
+  <div formArrayName="transactions">
+
+    <div style="margin-top:5px; margin-bottom:5px;" *ngFor="let city of myForm.get('transactions').controls; let i=index">
+              <div class="card" style="width: 50rem;">
+  <div class="card-body">
+      <fieldset>
+        <legend><h4>Transaction {{i+1}}:
+
+
+ 
+
+</h4></legend>
+
+        <div [formGroupName]="i">
+          <div class="form-inline">
+            <div class="form-group">
+              <label style="margin-right:30px;" class="col-form-label" for="city">Name:</label>
+              <input type="text"
+                     class="form-control"
+                     id="city"
+                     placeholder="City"
+                     name="type"
+                     formControlName="city" 
+                     style="margin-right:5px;" 
+                     required>
+   
+
+            </div>
+          </div>
+             <div class="card"  style="width: 40rem;margin-top:50px; margin-right:30px;">
+                 <div class="card-body">
+                   <h4>Fields</h4>
+
+          <div class="form-inline">
+            <div class="form-group">
+              <div formArrayName="addressLines">
+                <div  *ngFor="let lines of city.get('addressLines').controls; let j=index">
+                  <div [formGroupName]="j">
+                    <div class="form-group">
+                    <label style="margin-right:30px;"  class="col-form-label" for="emailId">field {{j + 1}}:</label>
+                    <input formControlName="addressLine"
+                           class="form-control"
+                           style="margin-right:5px;" 
+                           type="email"
+                           placeholder="Address lines"
+                           id="address"
+                           name="address"
+                            />
+                 <button style="margin-right:5px; margin-top:5px;" type="button" class="btn btn-danger btn-sm" (click)="deleteAddressLine(city.controls.addressLines, j)">
+<span class="glyphicon glyphicon-minus"aria-hidden="true">Remove Address Line</span>
+</button>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+           <div style = "margin-top:50px" class="btn-group mr-2" role="group" aria-label="First group">
+    <button type="button" (click)="addNewAddressLine(city.controls.addressLines)" class="btn btn-success">+ Add Field</button>
+    
+  </div>
+                 </div>
+          </div>
+        </div>
+
+<div class = "container">
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <button type="button" class="btn btn-danger">Remove Field</button>
+    
+  </div>
+
+</div>
+</div>
+      </fieldset>
+  </div>
+              </div>
+    </div>
+  </div>
+
+  
+  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="button" class="btn btn-basic" >Cancel</button>
+</form>
+
+ <pre>{{myForm.value | json}}</pre>
+
+
