@@ -47,7 +47,7 @@ export class CreateTreeComponent implements OnInit {
     )
   }
 
-  deletetransName(index) {
+  deleteTrans(index) {
     let control = <FormArray>this.myForm.controls.transactions;
     control.removeAt(index)
   }
