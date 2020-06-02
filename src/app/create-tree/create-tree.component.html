@@ -44,7 +44,7 @@
                   <div [formGroupName]="j">
                     <div class="form-group">
                     <label style="margin-right:30px;"  class="col-form-label" for="emailId">field {{j + 1}}:</label>
-                    <input formControlName="addressLine"
+                    <input formControlName="field"
                            class="form-control"
                            style="margin-right:5px;" 
                            type="email"
@@ -52,7 +52,7 @@
                            id="address"
                            name="address"
                             />
-                 <button style="margin-right:5px; margin-top:5px;" type="button" class="btn btn-danger btn-sm" (click)="deleteAddressLine(trans.controls.fields, j)">
+                 <button style="margin-right:5px; margin-top:5px;" type="button" class="btn btn-danger btn-sm" (click)="deletefield(trans.controls.fields, j)">
 <span class="glyphicon glyphicon-minus"aria-hidden="true">Remove Address Line</span>
 </button>
 
@@ -65,7 +65,7 @@
             
           </div>
            <div style = "margin-top:50px" class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" (click)="addNewAddressLine(trans.controls.fields)" class="btn btn-success">+ Add Field</button>
+    <button type="button" (click)="addNewfield(trans.controls.fields)" class="btn btn-success">+ Add Field</button>
     
   </div>
                  </div>

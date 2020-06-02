@@ -15,7 +15,7 @@ export class CreateTreeComponent implements OnInit {
         transName: "",
         fields: [
           {
-            addressLine: "",
+            field: "",
           }
         ]
       }
@@ -52,14 +52,14 @@ export class CreateTreeComponent implements OnInit {
     control.removeAt(index)
   }
 
-  addNewAddressLine(control) {
+  addNewfield(control) {
     control.push(
       this.fb.group({
-        addressLine: ['']
+        field: ['']
       }))
   }
 
-  deleteAddressLine(control, index) {
+  deletefield(control, index) {
     control.removeAt(index)
   }
 
@@ -76,7 +76,7 @@ export class CreateTreeComponent implements OnInit {
     let arr = new FormArray([])
     x.fields.forEach(y => {
       arr.push(this.fb.group({ 
-        addressLine: y.addressLine 
+        field: y.field 
       }))
     })
     return arr;
