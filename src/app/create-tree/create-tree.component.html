@@ -1,12 +1,12 @@
 
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-  <button style="margin-top:5px; margin-bottom:5px;" type="button" class="btn btn-primary btn-sm" (click)="addNewCity()">
+  <button style="margin-top:5px; margin-bottom:5px;" type="button" class="btn btn-primary btn-sm" (click)="addNewTrans()">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Transaction
   </button>
   <div formArrayName="transactions">
 
-    <div style="margin-top:5px; margin-bottom:5px;" *ngFor="let city of myForm.get('transactions').controls; let i=index">
+    <div style="margin-top:5px; margin-bottom:5px;" *ngFor="let trans of myForm.get('transactions').controls; let i=index">
               <div class="card" style="width: 50rem;">
   <div class="card-body">
       <fieldset>
@@ -40,7 +40,7 @@
           <div class="form-inline">
             <div class="form-group">
               <div formArrayName="addressLines">
-                <div  *ngFor="let lines of city.get('addressLines').controls; let j=index">
+                <div  *ngFor="let lines of trans.get('addressLines').controls; let j=index">
                   <div [formGroupName]="j">
                     <div class="form-group">
                     <label style="margin-right:30px;"  class="col-form-label" for="emailId">field {{j + 1}}:</label>
@@ -52,7 +52,7 @@
                            id="address"
                            name="address"
                             />
-                 <button style="margin-right:5px; margin-top:5px;" type="button" class="btn btn-danger btn-sm" (click)="deleteAddressLine(city.controls.addressLines, j)">
+                 <button style="margin-right:5px; margin-top:5px;" type="button" class="btn btn-danger btn-sm" (click)="deleteAddressLine(trans.controls.addressLines, j)">
 <span class="glyphicon glyphicon-minus"aria-hidden="true">Remove Address Line</span>
 </button>
 
@@ -65,7 +65,7 @@
             
           </div>
            <div style = "margin-top:50px" class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" (click)="addNewAddressLine(city.controls.addressLines)" class="btn btn-success">+ Add Field</button>
+    <button type="button" (click)="addNewAddressLine(trans.controls.addressLines)" class="btn btn-success">+ Add Field</button>
     
   </div>
                  </div>

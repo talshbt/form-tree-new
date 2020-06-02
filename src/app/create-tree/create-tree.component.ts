@@ -37,7 +37,7 @@ export class CreateTreeComponent implements OnInit {
     alert(this.myForm.value);
   }
 
-  addNewtransName() {
+  addNewTrans() {
     let control = <FormArray>this.myForm.controls.transactions;
     control.push(
       this.fb.group({
