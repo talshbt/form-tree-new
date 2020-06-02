@@ -13,7 +13,7 @@ export class CreateTreeComponent implements OnInit {
     transactions: [
       {
         transName: "",
-        addressLines: [
+        fields: [
           {
             addressLine: "",
           }
@@ -42,7 +42,7 @@ export class CreateTreeComponent implements OnInit {
     control.push(
       this.fb.group({
         transName: [''],
-        addressLines: this.fb.array([])
+        fields: this.fb.array([])
       })
     )
   }
@@ -68,13 +68,13 @@ export class CreateTreeComponent implements OnInit {
     this.data.transactions.forEach(x => {
       control.push(this.fb.group({ 
         transName: x.transName, 
-        addressLines: this.setAddressLines(x) }))
+        fields: this.setfields(x) }))
     })
   }
 
-  setAddressLines(x) {
+  setfields(x) {
     let arr = new FormArray([])
-    x.addressLines.forEach(y => {
+    x.fields.forEach(y => {
       arr.push(this.fb.group({ 
         addressLine: y.addressLine 
       }))
