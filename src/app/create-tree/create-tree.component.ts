@@ -12,7 +12,7 @@ export class CreateTreeComponent implements OnInit {
  data = {
     transactions: [
       {
-        city: "",
+        transName: "",
         addressLines: [
           {
             addressLine: "",
@@ -37,17 +37,17 @@ export class CreateTreeComponent implements OnInit {
     alert(this.myForm.value);
   }
 
-  addNewCity() {
+  addNewtransName() {
     let control = <FormArray>this.myForm.controls.transactions;
     control.push(
       this.fb.group({
-        city: [''],
+        transName: [''],
         addressLines: this.fb.array([])
       })
     )
   }
 
-  deleteCity(index) {
+  deletetransName(index) {
     let control = <FormArray>this.myForm.controls.transactions;
     control.removeAt(index)
   }
@@ -67,7 +67,7 @@ export class CreateTreeComponent implements OnInit {
     let control = <FormArray>this.myForm.controls.transactions;
     this.data.transactions.forEach(x => {
       control.push(this.fb.group({ 
-        city: x.city, 
+        transName: x.transName, 
         addressLines: this.setAddressLines(x) }))
     })
   }
